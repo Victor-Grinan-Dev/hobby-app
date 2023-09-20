@@ -10,10 +10,9 @@
 </template>
 
 <script>
- /* eslint-disable */
 import { ref, reactive } from 'vue';
-// eslint-disable-next-line
 import  { links }  from '../../appsetup/appSetup';
+
 export default {
     setup(){
         const isOpen = ref(false); //get thid value from the VUEX store
