@@ -1,11 +1,10 @@
 <template>
-  <h1>{{ content }}</h1>
       <footer id="footer w-full">
       <div className="py-10 mx-auto bg-black w-full">
         <div className="flex flex-col items-center mb-8 space-y-6 md:flex-row md:space-y-0 md:justify-between md:items-start">
           <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
             <div className="logo h-8">
-              <Image name="logo" type="icon" classes="w-44 md:ml-3" />
+              <img src='../../images/malditosdice.png' className="w-44 md:ml-3" alt="selected img"  />
             </div>
             <div className="flex flex-col items-center space-y-4 font-bold text-white md:flex-row md:space-y-0 md:space-x-6 md:ml-3">
 
@@ -80,7 +79,7 @@
 
 <script>
 import { ref, reactive, computed } from 'vue';
-import { links } from '../../appsetup/appSetup'
+import { links } from '../../appsetup/appSetup';
 export default {
   setup(){
     const content = ref('Footer');
@@ -90,8 +89,6 @@ export default {
       }
     });
     const footerlinks = reactive(links);
-
-    console.log(footerlinks);
 
     return {
       content,
@@ -103,7 +100,4 @@ export default {
 </script>
 
 <style scoped>
-a{
-  text-transform: capitalize;
-}
 </style>

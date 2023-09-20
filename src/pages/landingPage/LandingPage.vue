@@ -1,10 +1,14 @@
 <template>
-  <h1>{{ content }}</h1>
+  <hero-banner/>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
+import HeroBanner from '../../components/hero/HeroBanner';
 export default {
+  components:{
+    HeroBanner,
+  },
   setup(){
     const content = ref('Landing Page');
 
