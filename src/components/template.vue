@@ -6,7 +6,7 @@
 import { ref } from 'vue'
 export default {
   setup(){
-    const content = ref('HelloWorld');
+    const content = ref('Nothing here yet');
 
     return {
       content,
