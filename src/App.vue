@@ -99,7 +99,7 @@ transform:rotate(90deg)
 }
 
 .open .hamburger-top{
-transform:rotate(45deg) translateY(6px) translateX(6px)
+  transform:rotate(45deg) translateY(6px) translateX(6px)
 }
 
 .open .hamburger-middle{
@@ -107,7 +107,7 @@ transform:rotate(45deg) translateY(6px) translateX(6px)
 }
 
 .open .hamburger-bottom{
-transform:rotate(-45deg) translateY(6px) translateX(-6px)
+  transform:rotate(-45deg) translateY(6px) translateX(-6px)
 }
 
 .items-container{

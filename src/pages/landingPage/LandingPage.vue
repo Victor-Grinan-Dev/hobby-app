@@ -1,5 +1,5 @@
 <template>
-  <hero-banner></hero-banner>
+  <hero-banner/>
 </template>
 
 <script>
