@@ -37,6 +37,7 @@
               </div>
                <!-- Mobile menu -->
                <!--<HamburgerMenu :isOpen="isOpen" fx={toggle}/>-->
+               <hamburger-menu/>
             </nav>
     
            <!-- Mobile menu -->
@@ -47,8 +48,13 @@
 
 <script>
 import { ref, reactive } from 'vue';
+import HamburgerMenu from '../hamburgerMenu/HamburgerMenu.vue';
 import { links } from '../../appsetup/appSetup';
+
 export default {
+  components:{
+    HamburgerMenu,
+  },
   setup(){
     const content = ref('Hero');
     const isOpen = ref(false);
