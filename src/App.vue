@@ -1,15 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <LandingPage msg="Welcome to Your Vue.js App"/>
+  <the-footer/>
 </template>
 
 <script>
 import LandingPage from './pages/landingPage/LandingPage';
+import TheFooter from './layout/footer/TheFooter';
 
 export default {
   name: 'App',
   components: {
-    LandingPage
+    LandingPage,
+    TheFooter,
   }
 }
 </script>
