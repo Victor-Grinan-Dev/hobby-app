@@ -6,7 +6,7 @@
 import { ref } from 'vue'
 export default {
   setup(){
-    const content = ref('Footer');
+    const content = ref('Support Us');
 
     return {
       content,
