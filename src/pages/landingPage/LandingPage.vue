@@ -7,10 +7,10 @@
 
 <script>
 import { ref } from 'vue';
-import HeroBanner from '../../components/hero/HeroBanner';
-import AboutUs from '../../components/about/TheAbout';
-import TheCollapse from '../../components/collapse/TheCollapse';
-import OurThemes  from '../../components/themes/OurThemes';
+import HeroBanner from './hero/HeroBanner';
+import AboutUs from './about/TheAbout';
+import TheCollapse from './collapse/TheCollapse';
+import OurThemes  from './themes/OurThemes';
 export default {
   components:{
     HeroBanner,
