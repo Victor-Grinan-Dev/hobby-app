@@ -1,18 +1,13 @@
 <template>
-    <button className="hidden md:block">
-       {{ content }}
+    <button
+        class="btn px-10 py-2 my-0 font-bold tracking-widest uppercase border-2 border-black font-alata hover:bg-black hover:text-white"
+        :class='extraClass || ""' @click='fx'>
+        {{ content }}
     </button>
 </template>
 
 <script>
-    import { ref } from 'vue';
-    export default {
-        setup(){
-            const content = ref('see all');
-
-            return{
-                content
-            }
-        }
-    }
+export default {
+    props: ['content', 'fx', 'extraClass'],
+}
 </script>
