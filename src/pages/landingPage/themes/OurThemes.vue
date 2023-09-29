@@ -21,7 +21,7 @@
                     </div>
                     <h5
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        Pooper Bowl
+                        Pooper Bowl league
                     </h5>
                 </div>
                 <div className="group relative overflow-hidden md:w-1/4">
@@ -34,7 +34,7 @@
                     </div>
                     <h5
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        40K
+                        40K campaigns
                     </h5>
                 </div>
 
@@ -48,7 +48,7 @@
                     </div>
                     <h5
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        Magic
+                        Magic Brawls
                     </h5>
                 </div>
                 <div className="group relative overflow-hidden md:w-1/4">
@@ -69,8 +69,9 @@
 
         <div className="flex justify-center mt-10 mb-10 mx-6 md:hidden">
             <button className="btn w-full md:hidden">see all</button>
-    </div>
-</section></template>
+        </div>
+    </section>
+</template>
 <script>
 import { ref } from 'vue';
 export default {

@@ -1,28 +1,32 @@
 <template>
-      <div className='md:hidden' @click="openCloseHamburger">
-        <div id='menu-btn' class='hamburger z-40 block  md:hidden focus:outline-none border-none'  :class="classNames">
-            <span className="hamburger-top"></span>
-            <span className="hamburger-middle"></span>
-            <span className="hamburger-bottom"></span>
-        </div>
+  <div className='md:hidden' @click="openCloseHamburger">
+    <div id='menu-btn' class='hamburger z-40 block  md:hidden focus:outline-none border-none' :class="classNames">
+      <span className="hamburger-top"></span>
+      <span className="hamburger-middle"></span>
+      <span className="hamburger-bottom"></span>
     </div>
+  </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
 export default {
-  setup(){
+  setup() {
+    const store = useStore();
+
     const content = ref('HamburgerMenu');
 
-    const isOpen = ref(false);
+    const isOpen = computed(() => {
+      return store.getters.isOpen;
+    });
 
     const openCloseHamburger = () => {
       isOpen.value = !isOpen.value;
     }
 
-    const classNames = computed(()=>{
-      return ` ${isOpen.value === true ? "open" : ""}`
-    })
+    const classNames = isOpen.value === true ? "open" : "";
+
     return {
       content,
       classNames,
@@ -33,5 +37,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
