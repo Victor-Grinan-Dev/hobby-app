@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { ref, reactive, inject } from 'vue';
+import { ref, reactive } from 'vue';
 import HamburgerMenu from '../hamburgerMenu/HamburgerMenu.vue';
 import { links } from '../../../appsetup/appSetup';
 
@@ -59,12 +59,10 @@ export default {
   },
   setup() {
     const content = ref('Hero');
-    const isOpen = inject('isOpen');
     const heroLinks = reactive(links);
 
     return {
       content,
-      isOpen,
       heroLinks,
     }
   }

@@ -21,7 +21,7 @@ export default {
 
         const isOpen = computed(() => {
             return store.getters.isOpen;
-        }).value;
+        });
 
         const appLinks = reactive(links);
 
