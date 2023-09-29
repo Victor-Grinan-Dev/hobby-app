@@ -5,9 +5,8 @@
                 <h2 className="text-3xl text-center uppercase md:text-left md:text-5xl">
                     Our Themes
                 </h2>
-                <button className=" hidden md:block">
-                    see all
-                </button>
+                <main-btn :content='cta' extraClass='hidden md:block'></main-btn>
+
             </div>
 
             <div className="items-container">
@@ -81,8 +80,8 @@
             </div>
         </div>
 
-        <div className="flex justify-center mt-10 mb-10 mx-6 md:hidden">
-            <button className="btn w-full md:hidden">see all</button>
+        <div class="flex justify-center mt-10 mb-10 mx-6 md:hidden">
+            <main-btn :content='cta' extraClass='w-full md:hidden'></main-btn>
         </div>
     </section>
 </template>
@@ -90,12 +89,14 @@
 import { ref } from 'vue';
 
 export default {
+    components: ['MainBtn'],
     setup() {
         const isOpen = ref(false);
-
+        const cta = 'Join Us Now!'
 
         return {
             isOpen,
+            cta,
         }
     }
 }
