@@ -4,25 +4,25 @@ export const events = [
   {
     id: "pooperbowl",
     name: "pooper bowl league",
-    mobileImg: "pooperBowlMobile",
-    desktopImg: "pooperBowlDesktop",
+    desktopImg: "blood-bowl-desktop.jpeg",
+    mobileImg: "blood-bowl-mobile.jpeg",
   },
   {
     id: "40kcampaings",
     name: "40k campaigns",
-    mobileImg: "campaigs40kMobile",
-    desktopImg: "campaigs40kDesktop",
+    desktopImg: "40k-desktop.jpeg",
+    mobileImg: "40k-mobile.jpeg",
   },
   {
     id: "magicbrawls",
     name: "magic brawls",
-    mobileImg: "magicMobile",
-    desktopImg: "magicDesktop",
+    desktopImg: "magic-desktop.jpg",
+    mobileImg: "magic-mobile.jpg",
   },
   {
     id: "others",
     name: "others",
-    mobileImg: "strategoMobile",
-    desktopImg: "strategoDesktop",
+    desktopImg: "stratego-desktop.png",
+    mobileImg: "stratego-mobile.png",
   },
 ];
