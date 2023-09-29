@@ -21,12 +21,13 @@ export default {
       return store.getters.isOpen;
     });
 
-    const openCloseHamburger = () => {
-      isOpen.value = !isOpen.value;
+    const classNames = computed(() => {
+      return isOpen.value === true ? "open" : ""
+    });
+
+    function openCloseHamburger() {
+      store.dispatch('toogleMenu'); //dispatch the actions
     }
-
-    const classNames = isOpen.value === true ? "open" : "";
-
     return {
       content,
       classNames,
