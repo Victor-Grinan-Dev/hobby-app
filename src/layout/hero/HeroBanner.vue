@@ -2,37 +2,42 @@
   <section className='hero saturate-60' id='hero'>
     <div className="container max-w-6xl mx-auto px-6 py-12">
       <nav className="nav-logo-container flex item-center justify-between font-bold text-white">
-        <img src='../../images/malditosdice.png' className="w-44 md:ml-3 z-0" alt="selected img" />
+
+        <!--malditos dice logo-->
+        <router-link to='/'>
+          <img src='../../images/malditosdice.png' className="w-44 md:ml-3 z-0" alt="selected img" />
+        </router-link>
+
         <div className="hidden h-10 font-alata md:flex md:space-x-8">
           <div className="group">
-            <a href="/">
+            <router-link :to='heroLinks[0]'>
               {{ heroLinks[0] }}
               <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </a>
+            </router-link>
           </div>
           <div className="group">
-            <a href="/">
+            <router-link :to='heroLinks[1]'>
               {{ heroLinks[1] }}
               <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </a>
+            </router-link>
           </div>
           <div className="group">
-            <a href="/">
+            <router-link :to='heroLinks[2]'>
               {{ heroLinks[2] }}
               <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </a>
+            </router-link>
           </div>
           <div className="group">
-            <a href="/">
+            <router-link :to='heroLinks[3]'>
               {{ heroLinks[3] }}
               <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </a>
+            </router-link>
           </div>
           <div className="group">
-            <a href="/">
+            <router-link :to='heroLinks[4]'>
               {{ heroLinks[4] }}
               <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </a>
+            </router-link>
           </div>
         </div>
         <!-- Mobile menu -->
