@@ -1,24 +1,31 @@
 <template>
-  <landing-page />
-  <router-view v-slot="slotProps">
-    <transition name="route" mode="out-in">
-      <component :is="slotProps.Component"></component>
-    </transition>
+  <hero-banner />
+  <router-view>
   </router-view>
   <the-footer />
 </template>
 
 <script>
-import LandingPage from './pages/landingPage/LandingPage';
 import TheFooter from './layout/footer/TheFooter';
+import HeroBanner from './layout/hero/HeroBanner';
 
 export default {
   name: 'App',
   components: {
-    LandingPage,
     TheFooter,
+    HeroBanner,
   }
 }
+
+/**
+ 
+  <router-view v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
+
+ */
 </script>
 
 <style>

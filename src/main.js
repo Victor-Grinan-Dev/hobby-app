@@ -1,6 +1,7 @@
 import { createApp, defineAsyncComponent } from "vue";
 import App from "./App.vue";
 import store from "./store/store";
+import router from "./router/router";
 
 import MainBtn from "./components/appBtn/MainBtn.vue";
 
@@ -21,5 +22,5 @@ app.component("app-dialog", AppDialog);
 */
 
 app.use(store);
-// app.use(router);
+app.use(router);
 app.mount("#app");
