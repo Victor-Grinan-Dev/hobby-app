@@ -1,9 +1,16 @@
 import { createStore } from "vuex";
+
+import pooperBowlModule from "./modules/pooperbowl/index";
+
 const store = createStore({
+  modules: {
+    pooperBowl: pooperBowlModule,
+  },
   state() {
     return {
       isOpen: false,
       events: [
+        // pooperBowlModule,
         {
           id: "pooperbowl",
           name: "pooper bowl league",

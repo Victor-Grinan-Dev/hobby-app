@@ -8,7 +8,10 @@ import LandingPage from "../pages/landingPage/LandingPage.vue";
 const DashBoard = () => import("../components/baseDashboard/DashBoard.vue");
 const LoginSignUp = () => import("../pages/login/LoginSignUp.vue");
 const notFound = () => import("../pages/notFound/NotFound.vue");
-
+const PooperBowl = () =>
+  import(
+    "../components/baseDashboard/contents/pooperbowl/PooperBowlDashBoard.vue"
+  );
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -16,10 +19,12 @@ const router = createRouter({
     { path: "/home", component: LandingPage },
     { path: "/login", component: LoginSignUp },
     { path: "/events", component: null },
+    { path: "/events/pooperbowl", component: PooperBowl },
     {
       path: "/events/:id",
       component: DashBoard,
-      children: [{ path: "dashboard" }, { path: "enroll", component: null }],
+      children: [{ path: "enroll", component: null }],
+      props: true,
     },
 
     // { path: "/coaches", component: coachesList },

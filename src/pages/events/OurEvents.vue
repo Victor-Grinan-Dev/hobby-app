@@ -5,7 +5,7 @@
 <script>
 import { ref } from 'vue'
 export default {
-  setup(){
+  setup() {
     const content = ref('Events');
 
     return {
@@ -15,5 +15,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
