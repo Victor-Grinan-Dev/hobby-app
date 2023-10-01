@@ -1,5 +1,5 @@
 <template>
-    <router-link :to='"/events/:" + id' className="group relative overflow-hidden md:w-1/4 z-0">
+    <router-link :to='"/events/" + id' className="group relative overflow-hidden md:w-1/4 z-0">
 
         <img :src="deskImg" :alt="deskImg" class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
