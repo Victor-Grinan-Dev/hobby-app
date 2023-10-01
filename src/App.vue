@@ -97,6 +97,11 @@ code {
   transform: rotate(90deg);
   position: fixed;
   right: 30px;
+  visibility: visible;
+}
+
+.closed {
+  display: none;
 }
 
 .open .hamburger-top {

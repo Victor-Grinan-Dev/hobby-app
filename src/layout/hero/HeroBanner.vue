@@ -45,7 +45,7 @@
       </nav>
       <!-- Mobile menu -->
       <div v-if='type === "full"'
-        className="max-w-lg mt-32 mb-32 p-4 font-sans text-4xl text-white uppercase border-4 md:p-10 md:m32 md:mx-0 md:text-6xl">
+        className="max-w-lg mt-32 mb-32 p-4 font-sans text-4xl text-white uppercase border-4 md:p-10 md:m32 md:mx-0 md:text-4xl">
         You can roll like we do</div>
     </div>
   </section>
