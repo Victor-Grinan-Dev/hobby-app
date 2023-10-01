@@ -1,5 +1,5 @@
 <template>
-    <div className="group relative overflow-hidden md:w-1/4">
+    <router-link :to='"/events/:" + id' className="group relative overflow-hidden md:w-1/4">
 
         <img :src="deskImg" :alt="deskImg" class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
@@ -9,14 +9,14 @@
         </div>
         <h5
             className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-            {{ deskImg }}
+            {{ name }}
         </h5>
 
 
-    </div>
+    </router-link>
 </template>
 <script>
-import { computed } from 'vue';
+import { ref } from 'vue';
 export default {
     props: [
         'name',
@@ -25,16 +25,9 @@ export default {
         'mobileImg',
     ],
     setup(props) {
-        console.log(props.desktopImg);
 
-        const deskImg = computed(() => {
-            return '../../../images/' + props.desktopImg;
-        })
-
-
-        const mobImg = computed(() => {
-            return '../../../images/' + props.mobileImg;
-        });
+        const deskImg = ref(require('/src/images/' + props.desktopImg));
+        const mobImg = ref(require('../../../images/' + props.mobileImg));
 
         return {
             deskImg,

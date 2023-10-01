@@ -10,6 +10,11 @@
             </div>
 
             <div className="items-container">
+
+                <theme-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id'
+                    :desktopImg='event.desktopImg' :mobileImg='event.mobileImg'></theme-item>
+
+                <!--
                 <router-link to='/events/:pooperbowl' class='group relative overflow-hidden md:w-1/4'>
 
                     <img src="../../../images/blood-bowl-desktop.jpeg" alt="blood-bowl"
@@ -70,6 +75,7 @@
                     </h5>
 
                 </router-link>
+-->
             </div>
         </div>
 
@@ -81,17 +87,20 @@
 <script>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
-// import ThemesItem from './ThemeItem.vue';
+import ThemeItem from './ThemeItem.vue';
 
 export default {
-    // components: { ThemesItem },
+    components: { ThemeItem },
     setup() {
         const store = useStore();
         const isOpen = ref(false);
         const cta = 'Join Us Now!'
         const events = store.getters.events;
-        // console.log(events);
-        // events.forEach(event => console.log(event.desktopImg))
+        // console.log(events[0].id);
+        // console.log(events[0].name);
+        // console.log(events[0].desktopImg);
+        // console.log(events[0].mobileImg);
+
         return {
             isOpen,
             cta,
@@ -100,5 +109,5 @@ export default {
     }
 }
 
-//<themes-item v-for='event in events' :name='event.title' :id='event.id' v-bind:key='event.id' :desktopImg='eventdesktopImg' :mobileImg='event.mobileImg'></themes-item >
+//<themes-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id' :desktopImg='eventdesktopImg' :mobileImg='event.mobileImg'></themes-item >
 </script>
