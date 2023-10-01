@@ -94,7 +94,9 @@ code {
 }
 
 .open {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
+  position: fixed;
+  right: 30px;
 }
 
 .open .hamburger-top {
