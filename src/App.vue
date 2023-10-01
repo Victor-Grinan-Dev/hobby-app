@@ -1,24 +1,28 @@
 <template>
-  <landing-page />
-  <router-view v-slot="slotProps">
-    <transition name="route" mode="out-in">
-      <component :is="slotProps.Component"></component>
-    </transition>
+  <router-view>
   </router-view>
   <the-footer />
 </template>
 
 <script>
-import LandingPage from './pages/landingPage/LandingPage';
 import TheFooter from './layout/footer/TheFooter';
 
 export default {
   name: 'App',
   components: {
-    LandingPage,
     TheFooter,
   }
 }
+
+/**
+ 
+  <router-view v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
+
+ */
 </script>
 
 <style>
@@ -90,7 +94,14 @@ code {
 }
 
 .open {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
+  position: fixed;
+  right: 30px;
+  visibility: visible;
+}
+
+.closed {
+  display: none;
 }
 
 .open .hamburger-top {

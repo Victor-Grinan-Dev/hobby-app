@@ -1,6 +1,7 @@
 
 <template>
-    <div v-if="isOpen" className="absolute top-0 bottom-0 left-0 flex flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black">
+    <div v-if="isOpen"
+        className="fixed top-0 bottom-0 left-0 flex flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black z-10">
         <a href="/" className="hover:text-pink-700">{{ appLinks[0] }}</a>
         <a href="/" className="hover:text-pink-700">{{ appLinks[1] }}</a>
         <a href="/" className="hover:text-pink-700">{{ appLinks[2] }}</a>
@@ -11,10 +12,10 @@
 
 <script>
 import { ref, reactive } from 'vue';
-import  { links }  from '../../appsetup/appSetup';
+import { links } from '../../appsetup/appSetup';
 
 export default {
-    setup(){
+    setup() {
         const isOpen = ref(false); //get thid value from the VUEX store
         const appLinks = reactive(links);
 

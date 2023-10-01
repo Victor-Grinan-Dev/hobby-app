@@ -10,73 +10,10 @@
             </div>
 
             <div className="items-container">
-                <!--<div v-for='theme in themes' className="group relative overflow-hidden md:w-1/4" :key='theme.id'>
-                    <img :src="image(theme.desktopImg)" :alt='theme.id'
-                        class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
-                    <img :src="image(theme.mobileImg)" :alt='theme.id' class='md:hidden w-full'>
-                    <div
-                        className="gradient absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-gray-900 grop-hover:from-gray-50 group-hover:to-white group-hover:opacity-70 duration-200">
-                    </div>
-                    <h5
-                        className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        Pooper Bowl league
-                    </h5>
-                </div>-->
+                <theme-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id'
+                    :desktopImg='event.desktopImg' :mobileImg='event.mobileImg'></theme-item>
 
-                <div className="group relative overflow-hidden md:w-1/4">
-                    <img src="../../../images/blood-bowl-desktop.jpeg" alt="blood-bowl"
-                        class='w-full hidden md:block group-hover:scale-110 duration-200'>
-
-                    <img src="../../../images/blood-bowl-mobile.jpeg" alt="blood-bowl" class='md:hidden w-full'>
-                    <div
-                        className="gradient absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-gray-900 grop-hover:from-gray-50 group-hover:to-white group-hover:opacity-70 duration-200">
-                    </div>
-                    <h5
-                        className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        Pooper Bowl league
-                    </h5>
-                </div>
-                <div className="group relative overflow-hidden md:w-1/4">
-                    <img src="../../../images/40k-desktop.jpeg" alt="blood-bowl"
-                        class='w-full hidden md:block group-hover:scale-110 duration-200'>
-
-                    <img src="../../../images/40k-mobile.jpeg" alt="blood-bowl" class='md:hidden w-full'>
-                    <div
-                        className="gradient absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-gray-900 grop-hover:from-gray-50 group-hover:to-white group-hover:opacity-70 duration-200">
-                    </div>
-                    <h5
-                        className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        40K campaigns
-                    </h5>
-                </div>
-
-                <div className="group relative overflow-hidden md:w-1/4">
-                    <img src="../../../images/magic-desktop.jpg" alt="blood-bowl"
-                        class='w-full hidden md:block group-hover:scale-110 duration-200'>
-
-                    <img src="../../../images/magic-mobile.jpg" alt="blood-bowl" class='md:hidden w-full'>
-                    <div
-                        className="gradient absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-gray-900 grop-hover:from-gray-50 group-hover:to-white group-hover:opacity-70 duration-200">
-                    </div>
-                    <h5
-                        className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        Magic Brawls
-                    </h5>
-                </div>
-                <div className="group relative overflow-hidden md:w-1/4">
-                    <img src="../../../images/stratego-desktop.png" alt="blood-bowl"
-                        class='w-full hidden md:block group-hover:scale-110 duration-200'>
-
-                    <img src="../../../images/stratego-mobile.png" alt="blood-bowl" class='md:hidden w-full'>
-                    <div
-                        className="gradient absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-gray-900 grop-hover:from-gray-50 group-hover:to-white group-hover:opacity-70 duration-200">
-                    </div>
-                    <h5
-                        className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
-                        Others
-                    </h5>
-                </div>
             </div>
         </div>
 
@@ -87,17 +24,28 @@
 </template>
 <script>
 import { ref } from 'vue';
+import { useStore } from 'vuex';
+import ThemeItem from './ThemeItem.vue';
 
 export default {
-    components: ['MainBtn'],
+    components: { ThemeItem },
     setup() {
+        const store = useStore();
         const isOpen = ref(false);
         const cta = 'Join Us Now!'
+        const events = store.getters.events;
+        // console.log(events[0].id);
+        // console.log(events[0].name);
+        // console.log(events[0].desktopImg);
+        // console.log(events[0].mobileImg);
 
         return {
             isOpen,
             cta,
+            events
         }
     }
 }
+
+//<themes-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id' :desktopImg='eventdesktopImg' :mobileImg='event.mobileImg'></themes-item >
 </script>
