@@ -1,9 +1,9 @@
 <template>
   <section id="features">
-    <div className="relative container flex flex-col max-w-6xl mx-auto my-32 px-6 trext-gray-900 md:flex-row md:px-0">
+    <div className="relative container flex flex-col max-w-6xl mx-auto my-32 px-6 trext-gray-900 md:flex-row md:px-0 z-0">
 
-      <img src="../../../images/pngs/man&girl-boardgame.png" alt="nerds">
-      <div className="text-container top-48 pr-0 bg-white md:absolute md:right-0 md:py-20 md:pl-20">
+      <img src="../../../images/pngs/man&girl-boardgame.png" alt="nerds" class='z-1'>
+      <div className="text-container top-48 pr-0 bg-white md:absolute md:right-0 md:py-20 md:pl-20 z-2">
         <h2
           className="max-w-lg mt-10 mb-6 font-sans text-3xl text-center text-gray-900 uppercase md:text-5xl md:text-left">
           {{ content }}

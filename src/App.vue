@@ -1,19 +1,28 @@
 <template>
-  <landing-page />
+  <router-view>
+  </router-view>
   <the-footer />
 </template>
 
 <script>
-import LandingPage from './pages/landingPage/LandingPage';
 import TheFooter from './layout/footer/TheFooter';
 
 export default {
   name: 'App',
   components: {
-    LandingPage,
     TheFooter,
   }
 }
+
+/**
+ 
+  <router-view v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
+
+ */
 </script>
 
 <style>
@@ -21,11 +30,6 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base{
-  button{
-    @apply px-10 py-2 my-0 font-bold tracking-widest uppercase border-2 border-black font-alata hover:bg-black hover:text-white;
-  }
-} */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -41,11 +45,6 @@ a {
   text-transform: capitalize;
 }
 
-/* @media(max-width:576px){
-  body{
-    
-  }
-} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -64,6 +63,7 @@ code {
   }
 }
 
+/* HAMBURGER ANIMATION */
 .hamburger {
   cursor: pointer;
   width: 24px;
@@ -94,7 +94,14 @@ code {
 }
 
 .open {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
+  position: fixed;
+  right: 30px;
+  visibility: visible;
+}
+
+.closed {
+  display: none;
 }
 
 .open .hamburger-top {
@@ -111,5 +118,30 @@ code {
 
 .items-container {
   @apply flex flex-col justify-between w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8 mb-8
+}
+
+/* ROUTING ANIMATION */
+.route-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.route-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.route-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.route-enter-to,
+.route-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
