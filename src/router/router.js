@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 //routes
 import LandingPage from "../pages/landingPage/LandingPage.vue";
 //async routes
+const DashBoard = () => import("../components/baseDashboard/DashBoard.vue");
 const LoginSignUp = () => import("../pages/login/LoginSignUp.vue");
 const notFound = () => import("../pages/notFound/NotFound.vue");
 
@@ -17,12 +18,8 @@ const router = createRouter({
     { path: "/events", component: null },
     {
       path: "/events/:id",
-      component: null,
-      redirect: "/events/:id/dashboard",
-      children: [
-        { path: "dashboard", component: null },
-        { path: "enroll", component: null },
-      ],
+      component: DashBoard,
+      children: [{ path: "dashboard" }, { path: "enroll", component: null }],
     },
 
     // { path: "/coaches", component: coachesList },

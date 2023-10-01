@@ -10,10 +10,8 @@
             </div>
 
             <div className="items-container">
+                <router-link to='/events/:pooperbowl' class='group relative overflow-hidden md:w-1/4'>
 
-                <themes-item v-for='event in events' :props='event' v-bind:key='event.id'></themes-item>
-
-                <div className="group relative overflow-hidden md:w-1/4">
                     <img src="../../../images/blood-bowl-desktop.jpeg" alt="blood-bowl"
                         class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
@@ -25,9 +23,10 @@
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
                         Pooper Bowl league
                     </h5>
-                </div>
 
-                <div className="group relative overflow-hidden md:w-1/4">
+                </router-link>
+
+                <router-link to='/events/:40kcamp' className="group relative overflow-hidden md:w-1/4">
                     <img src="../../../images/40k-desktop.jpeg" alt="blood-bowl"
                         class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
@@ -39,9 +38,10 @@
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
                         40K campaigns
                     </h5>
-                </div>
 
-                <div className="group relative overflow-hidden md:w-1/4">
+                </router-link>
+
+                <router-link to='/events/:magic' className="group relative overflow-hidden md:w-1/4">
                     <img src="../../../images/magic-desktop.jpg" alt="blood-bowl"
                         class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
@@ -53,8 +53,10 @@
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
                         Magic Brawls
                     </h5>
-                </div>
-                <div className="group relative overflow-hidden md:w-1/4">
+
+                </router-link>
+
+                <router-link to='/events/:others' className="group relative overflow-hidden md:w-1/4">
                     <img src="../../../images/stratego-desktop.png" alt="blood-bowl"
                         class='w-full hidden md:block group-hover:scale-110 duration-200'>
 
@@ -66,7 +68,8 @@
                         className="absolute px-6 duration-200 w52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black">
                         Others
                     </h5>
-                </div>
+
+                </router-link>
             </div>
         </div>
 
@@ -78,10 +81,10 @@
 <script>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
-import ThemesItem from './ThemeItem.vue';
+// import ThemesItem from './ThemeItem.vue';
 
 export default {
-    components: { ThemesItem },
+    // components: { ThemesItem },
     setup() {
         const store = useStore();
         const isOpen = ref(false);
@@ -97,5 +100,5 @@ export default {
     }
 }
 
-// <themes-item v-for='event in events' :props='event' v-bind:key='event.id'></themes-item>
+//<themes-item v-for='event in events' :name='event.title' :id='event.id' v-bind:key='event.id' :desktopImg='eventdesktopImg' :mobileImg='event.mobileImg'></themes-item >
 </script>

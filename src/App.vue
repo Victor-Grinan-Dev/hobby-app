@@ -1,5 +1,4 @@
 <template>
-  <hero-banner />
   <router-view>
   </router-view>
   <the-footer />
@@ -7,13 +6,11 @@
 
 <script>
 import TheFooter from './layout/footer/TheFooter';
-import HeroBanner from './layout/hero/HeroBanner';
 
 export default {
   name: 'App',
   components: {
     TheFooter,
-    HeroBanner,
   }
 }
 
