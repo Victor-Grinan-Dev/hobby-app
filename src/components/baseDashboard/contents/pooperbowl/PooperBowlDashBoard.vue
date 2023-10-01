@@ -1,7 +1,7 @@
 <template>
     <dash-board>
         <div class='min-h-screen flex flex-col align-top flex-wrap justify-center text-center'>
-            {{ content }}
+            <h2 class='text-4xl'>{{ content }}</h2>
         </div>
     </dash-board>
 </template>
