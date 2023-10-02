@@ -1,14 +1,14 @@
 <template>
-    <div class='dashboard'>
+    <div class='dashboard relative min-h-full pb-4 '>
         <hero-banner type='small' />
 
-        <section class='heading flex flex-col'>
+        <section class='heading flex flex-col md:px-4'>
             <slot name='headding'>DashBoard:</slot>
         </section>
 
-        <section class='min-area'>
+        <section class='dataContainer relative h-30vh flex md:px-4 '>
             <slot>
-                <div class='min-area flex flex-col justify-center text-center'>
+                <div class='flex flex-col justify-center items-center place-self-center mx-auto '>
                     {{ content }}
                 </div>
             </slot>
@@ -36,7 +36,12 @@ export default {
 
 <style scoped>
 .min-area {
-    min-height: 50vh;
+    min-height: 40vh;
+}
+
+.dataContainer {
+    min-height: 40vh;
+    /* background-color: blue; */
 }
 </style>
 

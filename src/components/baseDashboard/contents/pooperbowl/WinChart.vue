@@ -1,8 +1,8 @@
 <template>
+    wins data wrapped in chart component
     <div></div>
 </template>
 <script>
-import Chart from 'chart.js/auto';
 export default {
     setup() {
 
