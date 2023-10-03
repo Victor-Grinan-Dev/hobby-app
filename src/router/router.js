@@ -12,14 +12,16 @@ const PooperBowl = () =>
   import(
     "../components/baseDashboard/contents/pooperbowl/PooperBowlDashBoard.vue"
   );
+const PooperTeamDetails = () => import("../pages/teamDetails/TeamDetails.vue");
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/home" },
     { path: "/home", component: LandingPage },
     { path: "/login", component: LoginSignUp },
-    { path: "/events", component: null },
+    // { path: "/events", component: null },
     { path: "/events/pooperbowl", component: PooperBowl },
+    { path: "/events/pooperbowl/team/:id", component: PooperTeamDetails },
     {
       path: "/events/:id",
       component: DashBoard,

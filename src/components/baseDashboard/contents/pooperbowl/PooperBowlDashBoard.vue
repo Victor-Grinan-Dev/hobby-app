@@ -9,8 +9,8 @@
                 <base-card type='full'>
                     <league-table></league-table>
                 </base-card>
-                <base-card v-for='item in content' v-bind:key='item' data='item' type='full'>
-                    {{ item }}
+                <base-card v-for='item in content' v-bind:key='item' :data='item' type='full'>
+                    <p> {{ item }}</p>
                 </base-card>
 
             </div>

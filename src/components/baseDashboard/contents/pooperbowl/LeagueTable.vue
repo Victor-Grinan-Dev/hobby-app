@@ -3,9 +3,8 @@
         <h1>{{ content }}</h1>
         <br>
         <ul v-if='hasTeams'>
-            <li v-for='team in filteredTeams' :key='team.id'>
-                <p>{{ team.team }}</p>
-            </li>
+            <!--<p>hello</p>-->
+            <team-item v-for='team in filteredTeams' :key='team.id' :id='team.id' :title='team.team' :logo='team.logo' />
         </ul>
         <div v-else>
             <p> No teams subscribed yet... </p>
@@ -16,7 +15,12 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 import { useStore } from 'vuex';
+import TeamItem from './TeamItem.vue';
+
 export default {
+    components: {
+        TeamItem,
+    },
     setup() {
         const content = ref('League Table');
         const store = useStore();
@@ -37,6 +41,9 @@ export default {
         }
     }
 }
+/**             <team-item v-for='team in filteredTeams' :key='team.id' :id='team.id' :title='team.team' :logo='team.logo'>
+
+            </team-item> */
 </script>
 
 <style scoped></style>
