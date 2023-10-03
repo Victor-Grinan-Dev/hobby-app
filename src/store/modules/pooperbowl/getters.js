@@ -1,18 +1,17 @@
 export default {
-  eventData(state) {
+  data(state) {
     return state.data;
   },
-
-  eventLeagueTable(state) {
+  leagueTable(state) {
     return state.leagueTable;
   },
-  eventFixtures(state) {
+  fixtures(state) {
     return state.fixtures;
   },
-  eventMatchups(state) {
+  matchups(state) {
     return state.matchups;
   },
-  eventRules(state) {
+  rules(state) {
     return state.rules;
   },
 };
