@@ -32,6 +32,7 @@ export default {
           cas: 0,
           points: 0,
           color: "#376389",
+          logo: "norse-wolves",
         },
         {
           id: "darryn-goblins",
@@ -46,6 +47,7 @@ export default {
           cas: 0,
           points: 0,
           color: "#1ac548",
+          logo: "gobbling-jokker",
         },
         {
           id: "victor-khorne",
@@ -60,6 +62,7 @@ export default {
           cas: 0,
           points: 0,
           color: "#da0000",
+          logo: "khorne-deamon",
         },
       ],
       fixtures: {
