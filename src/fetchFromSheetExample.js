@@ -45,3 +45,5 @@ export const getInstructions = () => {
       });
     });
 };
+
+const getLeagueTable = () => {};

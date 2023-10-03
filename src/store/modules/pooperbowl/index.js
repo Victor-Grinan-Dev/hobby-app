@@ -17,6 +17,7 @@ export default {
         endDate: "",
         players: [],
       },
+      instructions: null,
 
       leagueTable: [
         {
