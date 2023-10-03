@@ -62,7 +62,35 @@ export default {
           color: "#da0000",
         },
       ],
-      fixtures: {},
+      fixtures: {
+        oct: [
+          {
+            id: 1,
+            month: "oct",
+            team1: "Aron's Team",
+            team2: "Stinkbog Smeggers",
+          },
+          {
+            id: 2,
+            month: "oct",
+            team1: "Aron's Team",
+            team2: "Batty Bay Squig Fiddlers",
+          },
+          {
+            id: 3,
+            month: "oct",
+            team1: "Batty Bay Squig Fiddlers",
+            team2: "Bloody Balls",
+          },
+          {
+            id: 4,
+            month: "oct",
+            team1: "Bloody Balls",
+            team2: "Broken Tooth",
+          },
+        ],
+        nov: [{}],
+      },
       matchups: {},
 
       skillsLeveling: {},
