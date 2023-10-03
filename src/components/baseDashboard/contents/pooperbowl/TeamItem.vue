@@ -1,8 +1,10 @@
 <template>
-    <li class='team-card bg-slate-500'>
+    <li class='team-card bg-slate-500 mb-4'>
         <router-link :to='"/events/pooperbowl/team/" + id'>
             {{ title }}
-            <img :src="teamLogo" alt="">
+            <div class='team-logo-container bg-orange-100 relative'>
+                <img :src="teamLogo" :alt="logo" class='object-fit'>
+            </div>
         </router-link>
     </li>
 </template>
