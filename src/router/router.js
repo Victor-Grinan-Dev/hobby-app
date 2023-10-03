@@ -13,16 +13,18 @@ const PooperBowl = () =>
     "../components/baseDashboard/contents/pooperbowl/PooperBowlDashBoard.vue"
   );
 const PooperTeamDetails = () => import("../pages/teamDetails/TeamDetails.vue");
+const CreateTeam = () => import("../pages/createTeam/CreateTeam.vue");
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/home" },
     { path: "/home", component: LandingPage },
     { path: "/login", component: LoginSignUp },
-    // { path: "/events", component: null },
     { path: "/events/pooperbowl", component: PooperBowl },
     { path: "/events/pooperbowl/team/:id", component: PooperTeamDetails },
+    { path: "/events/pooperbowl/team/create", component: CreateTeam },
     {
+      /**redirecting empty events */
       path: "/events/:id",
       component: DashBoard,
       children: [{ path: "enroll", component: null }],

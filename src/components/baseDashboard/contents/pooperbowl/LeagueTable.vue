@@ -32,12 +32,13 @@ export default {
             return store.getters['pooperBowl/hasTeams'];
         })
 
-        console.log(teams);
+        // console.log(teams);
 
         return {
             content,
             filteredTeams,
             hasTeams,
+            teams,
         }
     }
 }

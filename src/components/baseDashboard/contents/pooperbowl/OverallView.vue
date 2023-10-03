@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// import { useStore } from 'vuex';
 import { ref, reactive } from 'vue';
 import BarsChart from '../../../appChart/BarsChart.vue';
 
@@ -29,11 +30,17 @@ export default {
             { month: 'jul', playedGames: 0 },
         ]);
 
+        // const store = useStore();
+        // function setIstr() {
+        //     store.dispatch('setInstructions');
+        // }
         return {
             title,
             totalGames,
             monthlyGames,
+            // setIstr,
         }
+
     }
 }
 </script>
