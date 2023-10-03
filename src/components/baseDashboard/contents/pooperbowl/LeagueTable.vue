@@ -3,7 +3,7 @@
         <h1>{{ content }}</h1>
         <br>
         <ul v-if='hasTeams'>
-            <!--<p>hello</p>-->
+            <!-- <p> Could this be a carrousel ????? </p> -->
             <team-item v-for='team in filteredTeams' :key='team.id' :id='team.id' :title='team.team' :logo='team.logo' />
         </ul>
         <div v-else>
