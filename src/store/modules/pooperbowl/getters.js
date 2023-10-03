@@ -1,18 +1,28 @@
 export default {
-  eventData(state) {
+  /* this is all the meta data of the event */
+  data(state) {
     return state.data;
   },
 
-  eventLeagueTable(state) {
+  rules(state) {
+    return state.rules;
+  },
+
+  /** league table */
+  leagueTable(state) {
     return state.leagueTable;
   },
-  eventFixtures(state) {
+  hasTeams(state) {
+    return state.leagueTable && state.leagueTable.length > 0;
+  },
+
+  /** fixtures */
+  fixtures(state) {
     return state.fixtures;
   },
-  eventMatchups(state) {
+
+  /** matchups */
+  matchups(state) {
     return state.matchups;
-  },
-  eventRules(state) {
-    return state.rules;
   },
 };

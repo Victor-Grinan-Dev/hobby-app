@@ -1,6 +1,7 @@
 <template>
-    wins data wrapped in chart component
-    <div></div>
+    <div>
+        hello
+    </div>
 </template>
 <script>
 export default {
@@ -8,4 +9,5 @@ export default {
 
     }
 }
+
 </script>

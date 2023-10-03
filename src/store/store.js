@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 
-import pooperBowlModule from "./modules/pooperbowl/index";
+import pooperBowlModule from "./modules/pooperbowl/index.js";
 
 const store = createStore({
   modules: {
