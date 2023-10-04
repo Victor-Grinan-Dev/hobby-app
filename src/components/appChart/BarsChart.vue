@@ -5,8 +5,8 @@
             <h3>{{ title }}</h3>
         </div>
 
-        <div>
-            <canvas id="myChart" class='bg-blue-200'></canvas>
+        <div class='flex justify-center items-center'>
+            <canvas id="myChart" class='bg-blue-200 ' width='200' height='150'></canvas>
         </div>
     </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     props: ['data'],
     data() {
         return {
-            title: "My chart",
+            title: "League Progress Chart",
         }
     },
 }

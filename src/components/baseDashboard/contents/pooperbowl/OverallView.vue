@@ -1,6 +1,5 @@
 <template>
     <div class='flex flex-col'>
-        <p>{{ title }}</p>
         <bars-chart :data='monthlyGames' />
     </div>
 </template>

@@ -15,10 +15,11 @@
                     <p class='team-name' :style='{ "color": color }'>{{ title }}</p>
                     <p class='team-race'>{{ race }}</p>
                     <div class='grafic-container'>
-                        grafic
+                        win-loose chart
                     </div>
-                    <div class='card-footer'>
-                        card footer
+                    <div v-if='archievements' class='card-footer'>
+                        <p v-for='archievement in archievements' :key='archievement'>{{ archievement.title }}: {{
+                            archievement.value }}</p>
                     </div>
                 </div>
             </div>
@@ -40,11 +41,14 @@ export default {
         console.log(teamLogo)
         // console.log(teamLogo)
 
+        const archievements = [
+            { title: 'tochdowns', value: 2 }, { title: 'casualties', value: 5 }, { title: 'passes', value: 3 }
+        ]
 
         return {
             content,
             teamLogo,
-
+            archievements,
         }
     }
 }
@@ -57,6 +61,8 @@ export default {
     max-width: 300px;
     position: relative;
     /* padding: 5px; */
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .data-container {
@@ -100,7 +106,7 @@ export default {
     font-family: monospace;
     position: relative;
     top: 25px;
-    /* text-shadow: 0 0 5px rgb(253, 251, 251); */
+    text-shadow: 0 0 2px rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.452);
     padding: 0 5px;
 }
@@ -108,6 +114,8 @@ export default {
 .team-race {
     font: 30px;
     font-family: monospace;
+    color: rgba(55, 50, 50, 0.885);
+    text-shadow: 0 0 2px rgb(225, 223, 223);
 }
 
 .grafic-container {
