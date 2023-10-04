@@ -3,10 +3,9 @@ const sheetId = "1Z2CthPCjLsbVtx2g_48U73XzGq9B0qRvK9xl-R-B9gg";
 // const constant = "/gviz/tq?sheet=";
 import axios from "axios";
 export default {
-  async loadInstructions(context) {
+  async setInstruction(context) {
     const sheetTitle = "Instructions";
     const sheetRange = "A1:M10";
-
     axios
       .get(
         "https://docs.google.com/spreadsheets/d/" +
@@ -19,7 +18,7 @@ export default {
         const parsedData = JSON.parse(res.data.substring(47).slice(0, -2)).table
           .rows;
 
-        const test1 = {
+        const finalData = {
           pageTitle: parsedData[0].c[0].v,
           table: [
             {
@@ -44,8 +43,56 @@ export default {
             },
           ],
         };
-        // console.log(test1);
-        context.commit("setInstruction", test1);
+        console.log(finalData);
+        context.commit("setInstruction", finalData);
+      });
+  },
+  async setTeams(context) {
+    const sheetTitle = "League_Table";
+    const sheetRange = "A1:N9";
+    const id = "1Z2CthPCjLsbVtx2g_48U73XzGq9B0qRvK9xl-R-B9gg"; //edit#gid=1242740284
+    axios
+      .get(
+        "https://docs.google.com/spreadsheets/d/" +
+          id +
+          "/gviz/tq?sheet=" +
+          sheetTitle +
+          sheetRange
+      )
+      .then((res) => {
+        console.log(res.data.substring(47).slice(0, -2));
+        // const parsedData = JSON.parse(res.data.substring(47).slice(0, -2)).table.rows
+        //   ;
+        // console.log(parsedData);
+        const finalData = [];
+
+        //{
+        //   pageTitle: parsedData[0].c[0].v,
+        //   table: [
+        //     {
+        //       title: parsedData[1].c[0].v,
+        //       content: [
+        //         parsedData[1].c[1].v,
+        //         parsedData[2].c[1].v,
+        //         parsedData[3].c[1].v,
+        //       ],
+        //     },
+        //     {
+        //       title: parsedData[4].c[0].v,
+        //       content: [parsedData[4].c[1].v],
+        //     },
+        //     {
+        //       title: parsedData[5].c[0].v,
+        //       content: [parsedData[5].c[1].v],
+        //     },
+        //     {
+        //       title: parsedData[6].c[0].v,
+        //       content: [parsedData[6].c[1].v, parsedData[7].c[1].v],
+        //     },
+        //   ],
+        // };
+        // console.log(finalData);
+        context.commit("setTeams", finalData);
       });
   },
 };
