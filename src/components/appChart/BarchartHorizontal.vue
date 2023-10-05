@@ -1,5 +1,5 @@
 <template>
-    <div class='char-container' :style='{ "width": `${chartWidth + (chartWidth / 100 * 40)}px` }'>
+    <div class='char-container' :style='{ "width": computedChartWidth }'>
         <dt>{{ title }}</dt>
         <div class='chart-outer-canvas flex flex-col w-full'>
             <div class='canvas-middleman flex justify-center gap-1'>
@@ -16,7 +16,8 @@
                     '>
                     <div v-for=' param  in  paramsX ' :key='param' class="bar-container">
                         <span class='fill' :style='{ width: `${chartWidth / max * param}px` }'>
-                            <div v-if='type' class='data-container flex items-center pr-2'>
+                            <div v-if='type' class='data-container flex items-center relative'
+                                :class='{ "-right-3": type === "percent", "pr-2": type === "integer" }'>
                                 <span v-if='type === "integer" && param > 0' class='chart-data'>{{ param }}</span>
                                 <span v-if='type === "percent" && param > 0' class='chart-data data-percent'>{{ param / max
                                     * 100
@@ -36,18 +37,22 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue';
 export default {
     props: ['title', 'data', 'paramsY', 'paramsX', 'min', 'max', 'chartWidth', 'type'],
     setup(props) {
         const content = ref('Nothing here yet');
         const dataLength = ref(props.data.length);
-
-        console.log(props.chartWidth)
-
+        const computedChartWidth = computed(() => {
+            if (!props.chartWidth) {
+                return `${200 + (200 / 100 * 40)}px`
+            }
+            return `${props.chartWidth + (props.chartWidth / 100 * 40)}px`
+        })
         return {
             content,
-            dataLength
+            dataLength,
+            computedChartWidth
         }
 
     }
@@ -97,5 +102,6 @@ export default {
 
 .chart-data {
     font-size: 8px;
+    font-weight: 900;
 }
 </style>

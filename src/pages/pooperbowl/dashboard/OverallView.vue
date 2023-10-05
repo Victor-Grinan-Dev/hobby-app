@@ -1,11 +1,8 @@
 <template>
     <div>
         <div class='flex flex-col'>
-            <bars-chart :data='monthlyGames' />
-        </div>
-        <div class='flex flex-col'>
-            <barchart-horizontal :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='400'
-                :paramsY='monthlyGames.paramsY' :paramsX='monthlyGames.paramsX' :type='"integer"' />
+            <barchart-horizontal :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
+                :paramsY='monthlyGames.paramsY' :paramsX='monthlyGames.paramsX' :type='"percent"' />
         </div>
 
     </div>
@@ -13,12 +10,10 @@
 
 <script>
 import { ref, reactive } from 'vue';
-import BarsChart from '../../../components/appChart/BarsChart';
 import BarchartHorizontal from '../../../components/appChart/BarchartHorizontal.vue';
 
 export default {
     components: {
-        BarsChart,
         BarchartHorizontal,
     },
     setup() {
