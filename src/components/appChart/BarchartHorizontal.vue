@@ -11,7 +11,7 @@
                     #ddd,
                     #ddd 1px,
                     #fff 1px,
-                    #fff ${chartWidth / 16 / chartWidth * 100}%)`
+                    #fff ${ruleWidth}%)`
                 }
                     '>
                     <div v-for=' param  in  paramsX ' :key='param' class="bar-container">
@@ -48,11 +48,16 @@ export default {
                 return `${200 + (200 / 100 * 40)}px`
             }
             return `${props.chartWidth + (props.chartWidth / 100 * 40)}px`
+        });
+
+        const ruleWidth = computed(() => {
+            return props.chartWidth / 16 / props.chartWidth * 100
         })
         return {
             content,
             dataLength,
-            computedChartWidth
+            computedChartWidth,
+            ruleWidth
         }
 
     }
