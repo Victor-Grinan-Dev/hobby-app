@@ -1,12 +1,12 @@
 <template>
     <div class='flex flex-wrap justify-center gap-4 w-full'>
         <div class='flex flex-col'>
-            <barchart-horizontal :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
-                :paramsY='monthlyGames.paramsY' :paramsX='monthlyGames.paramsX' :type='"percent"' />
+            <barchart-horizontal orientation='h' :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
+                :textParams='monthlyGames.months' :numericParams='monthlyGames.playedGames' :type='"percent"' />
         </div>
         <div class='flex flex-col'>
-            <barchart-horizontal :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
-                :paramsY='monthlyGames.paramsY' :paramsX='monthlyGames.paramsX' :type='"percent"' />
+            <barchart-horizontal orientation='v' :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
+                :textParams='monthlyGames.months' :numericParams='monthlyGames.playedGames' :type='"percent"' />
         </div>
 
     </div>
@@ -24,7 +24,7 @@ export default {
         const title = ref('Played Games');
         const totalGames = ref(160);
         const monthlyGames = reactive({
-            paramsY: [
+            months: [
                 'oct',
                 'nov',
                 'dic',
@@ -36,7 +36,7 @@ export default {
                 'jun',
                 'jul',
             ],
-            paramsX: [
+            playedGames: [
                 10,
                 12,
                 1,
