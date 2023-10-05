@@ -18,8 +18,11 @@
     </dash-board>
 </template>
 <script>
-import DashBoard from '../../DashBoard.vue';
-import BaseCard from '../../../baseCard/BaseCard';
+
+
+
+import DashBoard from '../../../components/baseDashboard/DashBoard';
+import BaseCard from '../../../components/baseCard/BaseCard';
 import OverallView from './OverallView';
 import LeagueTable from './LeagueTable';
 

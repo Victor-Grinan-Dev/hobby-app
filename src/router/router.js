@@ -9,10 +9,9 @@ const DashBoard = () => import("../components/baseDashboard/DashBoard.vue");
 const LoginSignUp = () => import("../pages/login/LoginSignUp.vue");
 const notFound = () => import("../pages/notFound/NotFound.vue");
 const PooperBowl = () =>
-  import(
-    "../components/baseDashboard/contents/pooperbowl/PooperBowlDashBoard.vue"
-  );
-const PooperTeamDetails = () => import("../pages/teamDetails/TeamDetails.vue");
+  import("../pages/pooperbowl/dashboard/PooperBowlDashBoard.vue");
+const PooperTeamDetails = () =>
+  import("../pages/pooperbowl/teamDetails/TeamDetails.vue");
 const router = createRouter({
   history: createWebHistory(),
   routes: [

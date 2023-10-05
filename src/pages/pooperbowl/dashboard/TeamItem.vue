@@ -4,7 +4,7 @@
             <div class='team-card'>
                 <div class='data-container'>
                     <div class='header-container'>
-                        <img src="../../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
+                        <img src="../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
                     </div>
                     <div class='player-color' :style='{ "background-color": color }'>
                         <div class='team-logo-container'>
@@ -35,7 +35,7 @@ export default {
 
     setup(props) {
         const content = ref('Nothing here yet');
-        const teamLogo = ref(require('../../../../assets/teamLogos/' + props.logo + '.png'));
+        const teamLogo = ref(require('../../../assets/teamLogos/' + props.logo + '.png'));
         // const teamLogo = require(teamLogo);
         console.log(props.logo)
         console.log(teamLogo)
