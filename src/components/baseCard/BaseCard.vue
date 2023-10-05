@@ -1,5 +1,5 @@
 <template>
-    <div class='group rounded py-4 px-6 flex justify-center items-center bg-slate-200 relative shadow-xl w-full'>
+    <div class='group rounded  py-4 px-1 md:px-6 flex justify-center items-center bg-slate-200 relative shadow-xl w-full'>
         <!--hover:shadow-lg hover:scale-105-->
         <slot>inside content</slot>
     </div>
