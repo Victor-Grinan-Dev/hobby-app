@@ -6,7 +6,7 @@
 
 <script>
 import { ref, reactive } from 'vue';
-import BarsChart from '../../../appChart/BarsChart.vue';
+import BarsChart from '../../../components/appChart/BarsChart';
 
 export default {
     components: {
