@@ -1,5 +1,9 @@
 <template>
-    <div>
+    <div class='flex flex-wrap justify-center gap-4 w-full'>
+        <div class='flex flex-col'>
+            <barchart-horizontal :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
+                :paramsY='monthlyGames.paramsY' :paramsX='monthlyGames.paramsX' :type='"percent"' />
+        </div>
         <div class='flex flex-col'>
             <barchart-horizontal :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
                 :paramsY='monthlyGames.paramsY' :paramsX='monthlyGames.paramsX' :type='"percent"' />
