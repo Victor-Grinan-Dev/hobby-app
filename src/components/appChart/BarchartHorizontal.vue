@@ -1,7 +1,7 @@
 <template>
     <div class='char-container' :style='{ "width": computedChartWidth }'>
         <dt>{{ title }}</dt>
-        <div class='chart-outer-canvas flex flex-col w-full bg-teal-400'>
+        <div class='chart-outer-canvas flex flex-col w-full'>
 
             <div class='canvas-middleman flex justify-center gap-1' :class='{ "flex-col": orientation === "v" }'>
                 <div v-if='orientation === "h"' class='text-params-container'>
@@ -21,14 +21,14 @@
                     }
                         '>
 
-                    <div v-for=' param  in   numericParams  ' :key='param' class="bar-container relative flex"
-                        :style='orientation === "h" ? { "height": "23px", "align-items": "center" } : { width: "23px", "align-items": "start", justifyContent: "flexend" }'>
+                    <div v-for=' (index, param) in numericParams' :key='param' class="bar-container relative flex"
+                        :style='barContainerStyle'>
 
-                        <span :class='orientation === "h" ? "fill" : "fill-v"' :style='orientation === "h" ? { width: `${chartWidth / max * param}px` } :
-                            { height: `${chartWidth / max * param}px` }'>
+                        <span class='bar-fill' :class='barFillClass' :style='barFillStyle(param, index)'>
                             <div v-if='type' class='data-container flex items-center relative' :class='{
                                 "-right-3": type === "percent", "pr-2": type === ("percent" && orientation === "h")
-                            }'>
+                            }
+                                '>
                                 <span v-if='type === "integer" && param > 0' class='chart-data'>{{ param }}</span>
                                 <span v-if='type === "percent" && param > 0' class='chart-data data-percent'>{{ param /
                                     max
@@ -42,51 +42,18 @@
                 </div>
                 <div v-if='orientation === "v"' class='text-params-container w-full flex justify-between text-xs'
                     :class='{ "flex": orientation === "v" }'>
-                    <p class='text-param -rotate-90' v-for='   param    in    textParams   ' :key='param'>{{ param }}</p>
+                    <p class='text-param -rotate-90' v-for='param in textParams' :key='param'>{{ param }}
+                    </p>
                 </div>
             </div>
         </div>
-        <!--
-        <div class='chart-outer-canvas flex flex-col w-full'>
-            <div class='canvas-middleman flex justify-center gap-1'>
-                <div class='text-params '>
-                    <p class='text-param' v-for=' param  in  textParams ' :key='param'>{{ param }}</p>
-                </div>
-                <div class='chart-inner-canvas' :style='{
-                    "background": `repeating-linear-gradient(to right,
-                    #ddd,
-                    #ddd 1px,
-                    #fff 1px,
-                    #fff ${ruleWidth}%)`
-                }
-                    '>
-                    <div v-for=' param  in  numericParams ' :key='param' class="bar-container">
-                        <span class='fill' :style='{ width: `${chartWidth / max * param}px` }'>
-                            <div v-if='type' class='data-container flex items-center relative'
-                                :class='{ "-right-3": type === "percent", "pr-2": type === "integer" }'>
-                                <span v-if='type === "integer" && param > 0' class='chart-data'>{{ param }}</span>
-                                <span v-if='type === "percent" && param > 0' class='chart-data data-percent'>{{ param / max
-                                    * 100
-                                }}%</span>
-                            </div>
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-            <div class='flex w-full justify-end'>
-                <p>max value: {{ max }}</p>
-            </div>
-        </div>
--->
-
     </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, reactive, computed } from 'vue';
 export default {
-    props: ['title', 'data', 'textParams', 'numericParams', 'min', 'max', 'chartWidth', 'type', 'orientation'],
+    props: ['title', 'data', 'textParams', 'numericParams', 'min', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
     setup(props) {
         const content = ref('Nothing here yet');
         const dataLength = ref(props.data.length);
@@ -98,13 +65,57 @@ export default {
         });
 
         const ruleWidth = computed(() => {
-            return props.chartWidth / 16 / props.chartWidth * 100
-        })
+            return props.chartWidth / 16 / props.chartWidth * 100;
+        });
+
+        const barThick = ref(24);
+
+        let iteration = 0;
+
+        const designatedColor = (index) => {
+            // let i;
+            let finalColor;
+            if (props.colors) {
+                console.log('index recieved:', index);
+                if (index < props.colors.length) {
+                    finalColor = props.colors[index - (props.colors.length * iteration)];
+
+
+                } else if (index >= (props.colors.length * iteration)) {
+                    finalColor = props.colors[index - (props.colors.length * iteration)];
+                }
+
+                console.log('iteration:', iteration);
+                console.log('iter index:', index - (props.colors.length * iteration));
+                console.log('is last index:', index - (props.colors.length * iteration) === (props.colors.length - 1))
+                if (index - (props.colors.length * iteration) === (props.colors.length - 1)) {
+                    iteration = iteration + 1;
+                }
+
+            }
+
+            console.log('final color:', finalColor)
+            return finalColor;
+        }
+
+
+
+        const barContainerStyle = reactive(props.orientation === "h" ? { "height": `${barThick.value}px`, "align-items": "center" } : { width: `${barThick.value}px`, "align-items": "start", justifyContent: "flexend" })
+        const barFillClass = reactive(props.orientation === "h" ? { "fill-h": true, "height": `${barThick.value}px` } : { "fill-v": true, width: `${barThick.value}px` });
+        const barFillStyle = (index, param) => {
+            // console.log('param', param, 'index', index, designatedColor(index))
+            const finalColor = designatedColor(index, param);
+            return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: finalColor } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: finalColor })
+        };
         return {
             content,
             dataLength,
             computedChartWidth,
-            ruleWidth
+            ruleWidth,
+            designatedColor,
+            barContainerStyle,
+            barFillClass,
+            barFillStyle,
         }
 
     }
@@ -124,17 +135,15 @@ export default {
     flex: 1;
 }
 
-.fill {
-    background-color: #3d9970;
-    height: 22px;
+.fill-h {
+    /* background-color: #3d9970; */
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
 .fill-v {
-    background-color: #b44c4c;
-    width: 22px;
+    /* background-color: #b44c4c; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
