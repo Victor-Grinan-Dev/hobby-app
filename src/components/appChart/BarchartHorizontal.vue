@@ -21,10 +21,10 @@
                     }
                         '>
 
-                    <div v-for=' (index, param) in numericParams' :key='param' class="bar-container relative flex"
+                    <div v-for=' (param, index) in numericParams' :key='param' class="bar-container relative flex"
                         :style='barContainerStyle'>
 
-                        <span class='bar-fill' :class='barFillClass' :style='barFillStyle(param, index)'>
+                        <span class='bar-fill' :class='barFillClass' :style='barFillStyle(index, param)'>
                             <div v-if='type' class='data-container flex items-center relative' :class='{
                                 "-right-3": type === "percent", "pr-2": type === ("percent" && orientation === "h")
                             }
@@ -54,9 +54,11 @@
 import { ref, reactive, computed } from 'vue';
 export default {
     props: ['title', 'data', 'textParams', 'numericParams', 'min', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
+
     setup(props) {
         const content = ref('Nothing here yet');
         const dataLength = ref(props.data.length);
+
         const computedChartWidth = computed(() => {
             if (!props.chartWidth) {
                 return `${200 + (200 / 100 * 40)}px`
@@ -67,8 +69,6 @@ export default {
         const ruleWidth = computed(() => {
             return props.chartWidth / 16 / props.chartWidth * 100;
         });
-
-        const barThick = ref(24);
 
         let iteration = 0;
 
@@ -84,10 +84,6 @@ export default {
                 } else if (index >= (props.colors.length * iteration)) {
                     finalColor = props.colors[index - (props.colors.length * iteration)];
                 }
-
-                console.log('iteration:', iteration);
-                console.log('iter index:', index - (props.colors.length * iteration));
-                console.log('is last index:', index - (props.colors.length * iteration) === (props.colors.length - 1))
                 if (index - (props.colors.length * iteration) === (props.colors.length - 1)) {
                     iteration = iteration + 1;
                 }
@@ -98,14 +94,11 @@ export default {
             return finalColor;
         }
 
-
-
-        const barContainerStyle = reactive(props.orientation === "h" ? { "height": `${barThick.value}px`, "align-items": "center" } : { width: `${barThick.value}px`, "align-items": "start", justifyContent: "flexend" })
-        const barFillClass = reactive(props.orientation === "h" ? { "fill-h": true, "height": `${barThick.value}px` } : { "fill-v": true, width: `${barThick.value}px` });
+        const barContainerStyle = reactive(props.orientation === "h" ? { "align-items": "center" } : { "align-items": "start", justifyContent: "flexend" })
+        const barFillClass = reactive(props.orientation === "h" ? { "fill-h": true } : { "fill-v": true });
         const barFillStyle = (index, param) => {
-            // console.log('param', param, 'index', index, designatedColor(index))
-            const finalColor = designatedColor(index, param);
-            return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: finalColor } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: finalColor })
+            // const finalColor = designatedColor(index, param);
+            return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) })
         };
         return {
             content,
@@ -116,6 +109,7 @@ export default {
             barContainerStyle,
             barFillClass,
             barFillStyle,
+
         }
 
     }
@@ -135,20 +129,24 @@ export default {
     flex: 1;
 }
 
+.bar-fill {
+    position: relative;
+}
+
 .fill-h {
-    /* background-color: #3d9970; */
+    background-color: ;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
 .fill-v {
-    /* background-color: #b44c4c; */
+    width: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    position: relative;
 }
 
 .chart-outer-canvas {
