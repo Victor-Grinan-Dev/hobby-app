@@ -37,8 +37,8 @@ export default {
         const content = ref('Nothing here yet');
         const teamLogo = ref(require('../../../assets/teamLogos/' + props.logo + '.png'));
         // const teamLogo = require(teamLogo);
-        console.log(props.logo)
-        console.log(teamLogo)
+        // console.log(props.logo)
+        // console.log(teamLogo)
         // console.log(teamLogo)
 
         const archievements = [
