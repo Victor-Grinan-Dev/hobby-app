@@ -53,7 +53,7 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 export default {
-    props: ['title', 'data', 'textParams', 'numericParams', 'min', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
+    props: ['title', 'data', 'textParams', 'numericParams', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
 
     setup(props) {
         const content = ref('Nothing here yet');
