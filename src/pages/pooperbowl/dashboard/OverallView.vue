@@ -6,7 +6,8 @@
         </div>
         <div class='flex flex-col'>
             <barchart-horizontal orientation='v' :title='title' :data='monthlyGames' :min='min' :max='16' :chartWidth='200'
-                :textParams='monthlyGames.months' :numericParams='monthlyGames.playedGames' :type='"percent"' />
+                :textParams='monthlyGames.months' :numericParams='monthlyGames.playedGames' :type='"percent"'
+                :colors='monthlyGames.colors' />
         </div>
 
     </div>
@@ -50,6 +51,7 @@ export default {
             ],
             min: 0,
             max: 16,
+            colors: ['blue', 'red', 'green']
         },
         );
 
