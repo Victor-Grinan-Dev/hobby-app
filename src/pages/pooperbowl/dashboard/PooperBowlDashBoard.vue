@@ -1,6 +1,6 @@
 <template>
     <dash-board>
-        <div class='pooper-dashboard'>
+        <div class='pooper-dashboard mx-auto max-w-6xl'>
             <h2 class='text-3xl'>{{ title }}</h2>
             <div class=' flex align-top flex-wrap justify-start  items-start text-center gap-4'>
                 <base-card type='full'>
