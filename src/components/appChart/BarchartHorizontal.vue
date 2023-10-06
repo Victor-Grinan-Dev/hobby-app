@@ -53,7 +53,7 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 export default {
-    props: ['title', 'data', 'textParams', 'numericParams', 'min', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
+    props: ['title', 'data', 'textParams', 'numericParams', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
 
     setup(props) {
         const content = ref('Nothing here yet');
@@ -76,7 +76,7 @@ export default {
             // let i;
             let finalColor;
             if (props.colors) {
-                console.log('index recieved:', index);
+
                 if (index < props.colors.length) {
                     finalColor = props.colors[index - (props.colors.length * iteration)];
 
@@ -90,14 +90,13 @@ export default {
 
             }
 
-            console.log('final color:', finalColor)
+
             return finalColor;
         }
 
         const barContainerStyle = reactive(props.orientation === "h" ? { "align-items": "center" } : { "align-items": "start", justifyContent: "flexend" })
         const barFillClass = reactive(props.orientation === "h" ? { "fill-h": true } : { "fill-v": true });
         const barFillStyle = (index, param) => {
-            // const finalColor = designatedColor(index, param);
             return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) })
         };
         return {
