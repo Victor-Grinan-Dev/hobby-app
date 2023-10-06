@@ -97,7 +97,6 @@ export default {
         const barContainerStyle = reactive(props.orientation === "h" ? { "align-items": "center" } : { "align-items": "start", justifyContent: "flexend" })
         const barFillClass = reactive(props.orientation === "h" ? { "fill-h": true } : { "fill-v": true });
         const barFillStyle = (index, param) => {
-            // const finalColor = designatedColor(index, param);
             return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) })
         };
         return {
