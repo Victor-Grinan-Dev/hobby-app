@@ -76,7 +76,7 @@ export default {
             // let i;
             let finalColor;
             if (props.colors) {
-                console.log('index recieved:', index);
+
                 if (index < props.colors.length) {
                     finalColor = props.colors[index - (props.colors.length * iteration)];
 
@@ -90,7 +90,7 @@ export default {
 
             }
 
-            console.log('final color:', finalColor)
+
             return finalColor;
         }
 
