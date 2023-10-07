@@ -1,5 +1,5 @@
 <template>
-    <li class='team-card bg-slate-500'>
+    <li class='team-card bg-slate-500' :style='{ backgroundColor: cardBg }'>
         <router-link :to='"/events/pooperbowl/team/" + id'>
             <div class='team-card'>
                 <div class='data-container'>
@@ -7,7 +7,7 @@
                         <img src="../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
                     </div>
                     <div class='player-color' :style='{ "background-color": color }'>
-                        <div class='team-logo-container'>
+                        <div class='team-logo-container' :style='{ backgroundColor: cardBg }'>
                             <img :src="teamLogo" alt="#" class='team-logo'>
                         </div>
                     </div>
@@ -17,10 +17,12 @@
                     <div class='grafic-container'>
                         win-loose chart
                     </div>
+
                     <div v-if='archievements' class='card-footer'>
                         <p v-for='archievement in archievements' :key='archievement'>{{ archievement.title }}: {{
                             archievement.value }}</p>
                     </div>
+
                 </div>
             </div>
         </router-link>
@@ -36,19 +38,27 @@ export default {
     setup(props) {
         const content = ref('Nothing here yet');
         const teamLogo = ref(require('../../../assets/teamLogos/' + props.logo + '.png'));
-        // const teamLogo = require(teamLogo);
-        // console.log(props.logo)
-        // console.log(teamLogo)
-        // console.log(teamLogo)
-
+        const cardBg = ref('white')
         const archievements = [
             { title: 'tochdowns', value: 2 }, { title: 'casualties', value: 5 }, { title: 'passes', value: 3 }
         ]
+
+        /**BADGE IDEA */
+        //https://codepen.io/samratambadekar/pen/NWxxjWR
+        const badges = {
+            football: '🏈',
+            prize: '🏆',
+            firstPlace: '🥇',
+            blood: '🩸',
+            shield: '🛡️',
+        }
 
         return {
             content,
             teamLogo,
             archievements,
+            cardBg,
+            badges,
         }
     }
 }
