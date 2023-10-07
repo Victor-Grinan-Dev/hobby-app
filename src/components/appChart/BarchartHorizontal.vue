@@ -40,7 +40,7 @@
                     </div>
 
                 </div>
-                <div v-if='orientation === "v"' class='text-params-container w-full flex justify-between text-xs'
+                <div v-if='orientation === "v"' class='text-params-container w-full flex justify-around text-xs'
                     :class='{ "flex": orientation === "v" }'>
                     <p class='text-param -rotate-90' v-for='param in textParams' :key='param'>{{ param }}
                     </p>
@@ -53,11 +53,11 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 export default {
-    props: ['title', 'data', 'textParams', 'numericParams', 'max', 'colors', 'chartWidth', 'type', 'orientation'],
+    props: ['title', 'data', 'textParams', 'numericParams', 'max', 'colors', 'chartWidth', 'type', 'orientation', 'barThickness'],
 
     setup(props) {
         const content = ref('Nothing here yet');
-        const dataLength = ref(props.data.length);
+        // const dataLength = ref(props.data.length);
 
         const computedChartWidth = computed(() => {
             if (!props.chartWidth) {
@@ -94,14 +94,14 @@ export default {
             return finalColor;
         }
 
-        const barContainerStyle = reactive(props.orientation === "h" ? { "align-items": "center" } : { "align-items": "start", justifyContent: "flexend" })
+        const barContainerStyle = reactive(props.orientation === "h" ? { "align-items": "center", height: props.barThickness || "24px" } : { "align-items": "start", justifyContent: "flex-between", width: props.barThickness || "24px" })
         const barFillClass = reactive(props.orientation === "h" ? { "fill-h": true } : { "fill-v": true });
         const barFillStyle = (index, param) => {
-            return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) })
+            return (props.orientation === "h" ? { width: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param) } : { height: `${props.chartWidth / props.max * param}px`, backgroundColor: designatedColor(index, param), width: props.barThickness || "24px" })
         };
         return {
             content,
-            dataLength,
+            // dataLength,
             computedChartWidth,
             ruleWidth,
             designatedColor,
@@ -122,6 +122,7 @@ export default {
     flex-direction: column;
     align-items: center;
     max-width: 95vw;
+    min-height: 200px;
 }
 
 .bar-container {
@@ -152,6 +153,7 @@ export default {
     padding: 10px;
     background-color: white;
     display: flex;
+    position: relative;
 }
 
 .chart-inner-canvas {
@@ -161,6 +163,8 @@ export default {
     border-right-width: 2px;
     border-bottom-color: black;
     border-bottom-width: 1px;
+    height: 100%;
+    min-height: 180px;
 }
 
 .chart-data {

@@ -1,5 +1,5 @@
 <template>
-    <li class='team-card bg-slate-500'>
+    <li class='team-card-list' :style='{ backgroundColor: cardBg }'>
         <router-link :to='"/events/pooperbowl/team/" + id'>
             <div class='team-card'>
                 <div class='data-container'>
@@ -7,20 +7,21 @@
                         <img src="../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
                     </div>
                     <div class='player-color' :style='{ "background-color": color }'>
-                        <div class='team-logo-container'>
+                        <div class='team-logo-container' :style='{ backgroundColor: cardBg }'>
                             <img :src="teamLogo" alt="#" class='team-logo'>
                         </div>
                     </div>
 
-                    <p class='team-name' :style='{ "color": color }'>{{ title }}</p>
-                    <p class='team-race'>{{ race }}</p>
-                    <div class='grafic-container'>
-                        win-loose chart
+                    <div>
+                        <p class='team-name font-black text-lg text-white'
+                            :style='{ "color": white, fontSize: "16px", fontWeight: "900" }'>"{{
+                                title }}"</p>
+                        <p class='team-race'>{{ race }}</p>
                     </div>
-                    <div v-if='archievements' class='card-footer'>
-                        <p v-for='archievement in archievements' :key='archievement'>{{ archievement.title }}: {{
-                            archievement.value }}</p>
-                    </div>
+
+                    <app-chart :title='title' :textParams='["TDs", "Cas", "Pass"]' :numericParams='[50, 72, 10]' :max='100'
+                        :colors='["#63B7AF", "#E57C23", "#93BFCF"]' :chartWidth='200' :type='"integer"' :orientation='"v"'
+                        :barThickness='"85px"' />
                 </div>
             </div>
         </router-link>
@@ -30,25 +31,36 @@
 <script>
 import { ref } from 'vue';
 
+import AppChart from '../../../components/appChart/BarchartHorizontal.vue';
 export default {
     props: ["id", 'title', 'logo', 'color', 'race'],
-
+    components: { AppChart },
     setup(props) {
         const content = ref('Nothing here yet');
         const teamLogo = ref(require('../../../assets/teamLogos/' + props.logo + '.png'));
-        // const teamLogo = require(teamLogo);
-        // console.log(props.logo)
-        // console.log(teamLogo)
-        // console.log(teamLogo)
-
+        const cardBg = ref('white')
         const archievements = [
-            { title: 'tochdowns', value: 2 }, { title: 'casualties', value: 5 }, { title: 'passes', value: 3 }
+            { title: 'tochdowns', value: 50 }, { title: 'casualties', value: 72 }, { title: 'passes', value: 10 }
         ]
+
+        /**BADGE IDEA */
+        //https://codepen.io/samratambadekar/pen/NWxxjWR
+        const badges = {
+            football: '🏈',
+            prize: '🏆',
+            firstPlace: '🥇',
+            blood: '🩸',
+            shield: '🛡️',
+        }
+
+        //'title', 'data', 'textParams', 'numericParams', 'max', 'colors', 'chartWidth', 'type', 'orientation'
 
         return {
             content,
             teamLogo,
             archievements,
+            cardBg,
+            badges,
         }
     }
 }
@@ -56,13 +68,13 @@ export default {
 
 <style scoped>
 .team-card {
-    height: 65vh;
+    height: 450px;
     width: 80vw;
     max-width: 300px;
     position: relative;
-    /* padding: 5px; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow: hidden;
+    padding-bottom: 1rem;
 }
 
 .data-container {
@@ -71,7 +83,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    height: 65vh;
+    height: 100%;
 }
 
 .header-container {
@@ -105,9 +117,8 @@ export default {
     font: 40px;
     font-family: monospace;
     position: relative;
-    top: 25px;
-    text-shadow: 0 0 2px rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.452);
+    /* top: 25px; */
+    background-color: rgba(0, 0, 0, 0.726);
     padding: 0 5px;
 }
 
@@ -120,13 +131,15 @@ export default {
 
 .grafic-container {
     background-color: blueviolet;
-    width: 70%;
-    height: 80px;
+    width: 90%;
+    min-width: 200px;
+    height: 200px;
 }
 
 .card-footer {
     background-color: black;
     color: white;
     width: 100%;
+    border-radius: 5px;
 }
 </style>
