@@ -52,6 +52,9 @@ const router = createRouter({
       // meta: { requiresUnauth: true },
     },
   ],
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 // router guard
