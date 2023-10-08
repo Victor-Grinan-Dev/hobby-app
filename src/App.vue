@@ -1,7 +1,9 @@
 <template>
-  <router-view>
-  </router-view>
-  <the-footer />
+  <div class='min-h-screen flex flex-col justify-between'>
+    <router-view>
+    </router-view>
+    <the-footer />
+  </div>
 </template>
 
 <script>

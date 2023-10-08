@@ -1,6 +1,6 @@
 <template>
     <div class='char-container' :style='{ "width": computedChartWidth }'>
-        <dt>{{ title }}</dt>
+        <dt>{{ title || "" }}</dt>
         <div class='chart-outer-canvas flex flex-col w-full'>
 
             <div class='canvas-middleman flex justify-center gap-1' :class='{ "flex-col": orientation === "v" }'>

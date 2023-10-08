@@ -12,14 +12,13 @@
                         </div>
                     </div>
 
-                    <div>
-                        <p class='team-name font-black text-lg text-white'
-                            :style='{ "color": white, fontSize: "16px", fontWeight: "900" }'>"{{
-                                title }}"</p>
-                        <p class='team-race'>{{ race }}</p>
+                    <div class='team-name font-black text-lg text-white'>
+                        <p :style='{ "color": white, fontSize: "16px", fontWeight: "900" }'>"{{
+                            title }}"</p>
+                        <p class='team-race text-xs font-mono'>{{ race }}</p>
                     </div>
 
-                    <app-chart :title='title' :textParams='["TDs", "Cas", "Pass"]' :numericParams='[50, 72, 10]' :max='100'
+                    <app-chart :textParams='["TDs", "Cas", "Pass"]' :numericParams='[50, 72, 10]' :max='100'
                         :colors='["#63B7AF", "#E57C23", "#93BFCF"]' :chartWidth='200' :type='"integer"' :orientation='"v"'
                         :barThickness='"85px"' />
                 </div>
@@ -117,18 +116,17 @@ export default {
     font: 40px;
     font-family: monospace;
     position: relative;
-    /* top: 25px; */
+    top: 12px;
     background-color: rgba(0, 0, 0, 0.726);
     padding: 0 5px;
 }
 
-.team-race {
-    font: 30px;
-    font-family: monospace;
-    color: rgba(55, 50, 50, 0.885);
-    text-shadow: 0 0 2px rgb(225, 223, 223);
-}
-
+/* .team-race { */
+/* font: 8px;
+    font-family: monospace; */
+/* color: rgba(55, 50, 50, 0.885); */
+/* text-shadow: 0 0 2px rgb(225, 223, 223); */
+/* } */
 .grafic-container {
     background-color: blueviolet;
     width: 90%;

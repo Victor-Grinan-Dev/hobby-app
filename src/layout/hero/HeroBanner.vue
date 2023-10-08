@@ -1,52 +1,53 @@
 <template>
-  <section className='hero saturate-60' id='hero' :class="mode" class='navContainer max-w-6xl mx-auto px-6'>
-    <div>
-      <nav className="nav-logo-container flex item-center justify-between font-bold text-white">
+  <section className='hero saturate-60 navContainer max-w-6xl mx-auto px-6 min' id='hero' :class="mode">
 
-        <!--malditos dice logo-->
-        <router-link to='/'>
-          <img src='../../images/malditosdice.png' className="w-44 md:ml-3 z-0" alt="selected img" />
-        </router-link>
+    <nav className="nav-logo-container flex item-center justify-between font-bold text-white mr-6">
 
-        <div className="hidden h-10 font-alata md:flex md:space-x-8">
-          <div className="group">
-            <router-link :to='heroLinks[0]'>
-              {{ heroLinks[0] }}
-              <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </router-link>
-          </div>
-          <div className="group">
-            <router-link :to='heroLinks[1]'>
-              {{ heroLinks[1] }}
-              <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </router-link>
-          </div>
-          <div className="group">
-            <router-link :to='heroLinks[2]'>
-              {{ heroLinks[2] }}
-              <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </router-link>
-          </div>
-          <div className="group">
-            <router-link :to='heroLinks[3]'>
-              {{ heroLinks[3] }}
-              <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </router-link>
-          </div>
-          <div className="group">
-            <router-link :to='heroLinks[4]'>
-              {{ heroLinks[4] }}
-              <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-            </router-link>
-          </div>
+      <!--malditos dice logo-->
+      <router-link to='/'>
+        <img src='../../images/malditosdice.png' className="w-44 ml-6 z-0" alt="selected img" />
+      </router-link>
+
+      <!-- desktop menu -->
+      <div className="hidden h-10 font-alata md:flex md:space-x-8">
+        <div className="group">
+          <router-link :to='heroLinks[0]'>
+            {{ heroLinks[0] }}
+            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
+          </router-link>
         </div>
-        <!-- Mobile menu -->
-        <hamburger-menu />
-      </nav>
+        <div className="group">
+          <router-link :to='heroLinks[1]'>
+            {{ heroLinks[1] }}
+            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
+          </router-link>
+        </div>
+        <div className="group">
+          <router-link :to='heroLinks[2]'>
+            {{ heroLinks[2] }}
+            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
+          </router-link>
+        </div>
+        <div className="group">
+          <router-link :to='heroLinks[3]'>
+            {{ heroLinks[3] }}
+            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
+          </router-link>
+        </div>
+        <div className="group">
+          <router-link :to='heroLinks[4]'>
+            {{ heroLinks[4] }}
+            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
+          </router-link>
+        </div>
+      </div>
       <!-- Mobile menu -->
-      <div v-if='type === "full"'
-        className="max-w-lg mt-32 mb-32 p-4 font-sans text-4xl text-white uppercase border-4 md:p-10 md:m32 md:mx-0 md:text-4xl">
-        You can roll like we do</div>
+      <hamburger-menu />
+    </nav>
+
+    <div v-if='type === "full"'
+      className="max-w-lg mt-32 mx-6 mb-32 p-4 font-sans text-4xl text-white uppercase border-4 md:p-10 md:m32 md:mx-0 md:text-4xl">
+      You can roll like we do
     </div>
   </section>
   <the-collapse></the-collapse>

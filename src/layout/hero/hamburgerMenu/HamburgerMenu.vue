@@ -1,5 +1,5 @@
 <template>
-  <div className='md:hidden' @click="openCloseHamburger">
+  <div className='md:hidden ' @click="openCloseHamburger">
     <div id='menu-btn' class='hamburger z-40 block focus:outline-none border-none' :class="classNames">
       <span className="hamburger-top"></span>
       <span className="hamburger-middle"></span>
