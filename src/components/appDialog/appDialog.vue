@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import useDialog from '../../hooks/dialog'
 export default {
   props: {
     show: {
@@ -47,6 +48,14 @@ export default {
       this.$emit("close");
     },
   },
+  setup() {
+    const [isVisible, showDialog, hideDialog] = useDialog();
+    return {
+      isVisible,
+      showDialog,
+      hideDialog,
+    }
+  }
 };
 </script>
 
