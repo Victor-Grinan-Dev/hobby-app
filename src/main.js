@@ -19,7 +19,6 @@ app.component("app-card", AppCard);
 app.component("app-button", AppButton);
 app.component("app-spinner", AppSpinner);
 app.component("app-dialog", AppDialog);
-
 */
 
 app.use(store);
