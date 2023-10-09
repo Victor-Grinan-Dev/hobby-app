@@ -12,13 +12,20 @@ const PooperBowl = () =>
   import("../pages/pooperbowl/dashboard/PooperBowlDashBoard.vue");
 const PooperTeamDetails = () =>
   import("../pages/pooperbowl/teamDetails/TeamDetails.vue");
+const OurEvents = () => import("../pages/events/OurEvents.vue");
+const OurProducts = () => import("../pages/products/OurProducts.vue");
+const MyProfile = () => import("../pages/profile/MyProfile.vue");
+const JoinUs = () => import("../pages/join/JoinUs.vue");
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/home" },
     { path: "/home", component: LandingPage },
     { path: "/login", component: LoginSignUp },
-    // { path: "/events", component: null },
+    { path: "/events", component: OurEvents },
+    { path: "/products", component: OurProducts },
+    { path: "/profile", component: MyProfile },
+    { path: "/joinUs", component: JoinUs },
     { path: "/events/pooperbowl", component: PooperBowl },
     { path: "/events/pooperbowl/team/:id", component: PooperTeamDetails },
     {
