@@ -11,7 +11,7 @@
       <!-- desktop menu -->
       <div className="hidden h-10 font-alata md:flex md:space-x-8">
         <div className="group">
-          <router-link :to='heroLinks[0]'>
+          <router-link to='login'>
             {{ heroLinks[0] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
