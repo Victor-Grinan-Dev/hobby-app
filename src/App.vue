@@ -3,6 +3,7 @@
     <router-view>
     </router-view>
     <the-footer />
+    <app-dialog></app-dialog>
   </div>
 </template>
 

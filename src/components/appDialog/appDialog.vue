@@ -1,8 +1,8 @@
 <template>
   <teleport to="body">
-    <div v-if="show" @click="tryClose" class="backdrop"></div>
+    <div v-if="isVisible" @click="hideDialog" class="backdrop"></div>
     <transition name="dialog">
-      <dialog open v-if="show">
+      <dialog open v-if="isVisible">
         <header>
           <slot name="header">
             <h2>{{ title }}</h2>
@@ -11,51 +11,33 @@
         <section>
           <slot></slot>
         </section>
-        <menu v-if="!fixed">
+
+        <section>
           <slot name="actions">
-            <base-button @click="tryClose">Close</base-button>
+            <base-button @click="hideDialog">Close</base-button>
           </slot>
-        </menu>
+        </section>
+
+
       </dialog>
     </transition>
   </teleport>
 </template>
 
 <script>
-import useDialog from '../../hooks/dialog'
+// import useDialog from '../../hooks/dialog'
 export default {
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: false,
-    },
-    fixed: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-  },
-  emits: ["close"],
-  methods: {
-    tryClose() {
-      if (this.fixed) {
-        return;
-      }
-      this.$emit("close");
-    },
-  },
-  setup() {
-    const [isVisible, showDialog, hideDialog] = useDialog();
-    return {
-      isVisible,
-      showDialog,
-      hideDialog,
-    }
-  }
+
+  // setup() {
+  //   const [isVisible, showDialog, hideDialog] = useDialog();
+  //   const title = 'test';
+  //   return {
+  //     title,
+  //     isVisible,
+  //     showDialog,
+  //     hideDialog,
+  //   }
+  // }
 };
 </script>
 

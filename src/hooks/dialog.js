@@ -1,14 +1,15 @@
-import { ref } from "vue";
+import { useStore } from "vuex";
 
-export const useDialog = (startVisibility = false) => {
-  const isVisible = ref(startVisibility);
+export default function useDialog() {
+  const store = useStore();
+  const isVisible = store.getters.isDialogVisible;
 
   function showDialog() {
-    isVisible.value = true;
+    store.dispatch("showDialog");
   }
-  function hideDialog() {
-    isVisible.value = false;
+  function closeDialog() {
+    store.dispatch("closeDialog");
   }
 
-  return [isVisible, showDialog, hideDialog];
-};
+  return [isVisible, showDialog, closeDialog];
+}

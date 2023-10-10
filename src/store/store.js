@@ -9,6 +9,7 @@ const store = createStore({
   state() {
     return {
       isOpen: false,
+      isDialogVisible: true,
       events: [
         // pooperBowlModule,
         {
@@ -42,10 +43,24 @@ const store = createStore({
     expandCollapse(state) {
       state.isOpen = !state.isOpen;
     },
+    showDialog(state) {
+      state.isDialogVisible = true;
+      console.log(state.isDialogVisible);
+    },
+    closeDialog(state) {
+      state.isDialogVisible = false;
+      console.log(state.isDialogVisible);
+    },
   },
   actions: {
     toogleMenu(context) {
       context.commit("expandCollapse");
+    },
+    showDialog(context) {
+      context.commit("showDialog");
+    },
+    closeDialog(context) {
+      context.commit("closeDialog");
     },
   },
   getters: {
@@ -54,6 +69,9 @@ const store = createStore({
     },
     events(state) {
       return state.events;
+    },
+    isDialogVisible(state) {
+      return state.isDialogVisible;
     },
   },
 });
