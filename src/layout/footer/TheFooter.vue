@@ -32,10 +32,14 @@
               </router-link>
             </div>
             <div className="h-10 group">
-              <router-link :to='footerlinks[3]'>
+              <router-link v-if='isLogged' :to='footerlinks[3]'>
                 {{ footerlinks[3] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
+              <div v-else class='cursor-pointer capitalize' @click='showDialog'>
+                {{ footerlinks[3] }}X
+                <div className="group-hover:border-b group hover:border-blue-50"></div>
+              </div>
             </div>
             <div className="h-10 group">
               <router-link :to='footerlinks[4]'>
@@ -86,6 +90,19 @@
 import { ref, reactive, computed } from 'vue';
 import { links } from '../../appsetup/appSetup';
 export default {
+  methods: {
+    showDialog() {
+      this.$store.commit('showDialog');
+    }
+  },
+  computed: {
+    isVisible() {
+      return this.$store.state.isVisible;
+    },
+    isLogged() {
+      return this.$store.state.isLogged;
+    }
+  },
   setup() {
     const content = ref('Footer');
     const year = computed(() => {

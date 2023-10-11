@@ -2,11 +2,9 @@
 <template>
     <div v-if="isOpen" @scroll='disableScroll'
         class="fixed top-0 bottom-0 left-0 flex flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black z-10">
-        <a href="/" className="hover:text-pink-700">{{ appLinks[0] }}</a>
-        <a href="/" className="hover:text-pink-700">{{ appLinks[1] }}</a>
-        <a href="/" className="hover:text-pink-700">{{ appLinks[2] }}</a>
-        <a href="/" className="hover:text-pink-700">{{ appLinks[3] }}</a>
-        <a href="/" className="hover:text-pink-700">{{ appLinks[4] }}</a>
+        <router-link v-for='link in appLinks' :key='link' class='hover:text-pink-700' :to='evaluatedLink(link)'
+            @click='closeCollapse'>{{ link
+            }}</router-link>
     </div>
 </template>
 
@@ -16,11 +14,16 @@ import { useStore } from 'vuex';
 import { links } from '../../../appsetup/appSetup';
 
 export default {
+
+    methods: {
+        closeCollapse() {
+            this.$store.commit('toggleCollapse')
+        }
+    },
     setup() {
         const store = useStore();
-
         const isOpen = computed(() => {
-            return store.getters.isOpen;
+            return store.getters.isCollapseOpen;
         });
 
         const appLinks = reactive(links);
@@ -33,11 +36,23 @@ export default {
             window.onscroll = function () { };
         }
 
+        const evaluatedLink = (link) => {
+            let finalLink;
+            if (link === 'profile') {
+                finalLink = "/"
+
+            } else {
+                finalLink = "/" + link;
+            }
+            return finalLink;
+        }
+
         return {
             isOpen,
             appLinks,
             disableScroll,
             enableScroll,
+            evaluatedLink,
         }
     }
 }

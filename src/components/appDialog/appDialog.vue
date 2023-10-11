@@ -1,20 +1,22 @@
 <template>
   <teleport to="body">
-    <div v-if="isVisible" @click="hideDialog" class="backdrop"></div>
+    <div v-if="isDialog" @click="hideDialog" class="backdrop"></div>
     <transition name="dialog">
-      <dialog open v-if="isVisible">
+      <dialog open v-if="isDialog">
         <header>
           <slot name="header">
             <h2>{{ title }}</h2>
           </slot>
         </header>
         <section>
-          <slot></slot>
+          <slot>
+            {{ content }}
+          </slot>
         </section>
 
         <section>
           <slot name="actions">
-            <main-btn @click="hideDialog">Close</main-btn>
+            <main-btn content='close test' :fx='hideDialog'></main-btn>
           </slot>
         </section>
       </dialog>
@@ -25,20 +27,29 @@
 <script>
 import useDialog from '../../hooks/dialog';
 import MainBtn from '../../components/appBtn/MainBtn.vue'
-import { ref } from 'vue'
+import { ref, reactive, } from 'vue';
+
+/** TAKE THE VALUES ISIDE THIS DIALOG FROM STORE */
+
 export default {
   comsponents: { MainBtn, },
+  computed: {
+    isDialog() {
+      return this.$store.getters['isDialogVisible'];
+    }
+  },
   setup() {
-    const [isVisible, showDialog, hideDialog] = useDialog();
-    console.log('isVisible', isVisible)
-
-
-    const title = ref('test');
+    const { isVisible, content, showDialog, hideDialog, setContent } = reactive(useDialog());
+    const defaultCaption = 'close';
+    const title = ref('Test dialog');
     return {
       title,
       isVisible,
+      content,
       showDialog,
       hideDialog,
+      setContent,
+      defaultCaption,
     }
 
   }

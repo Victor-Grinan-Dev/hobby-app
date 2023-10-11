@@ -33,8 +33,8 @@
             {{ heroLinks[3] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
-          <div v-else :to='heroLinks[3]' class='cursor-pointer' @click='showDialog1'>
-            ProfileX
+          <div v-else class='cursor-pointer capitalize' @click='showDialog'>
+            {{ heroLinks[3] }}X
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </div>
         </div>
@@ -63,21 +63,39 @@ import HamburgerMenu from './hamburgerMenu/HamburgerMenu.vue';
 import TheCollapse from './collapse/TheCollapse';
 import { links } from '../../appsetup/appSetup';
 
-import useDialog from '../../hooks/dialog';
-
 export default {
   components: {
     HamburgerMenu,
     TheCollapse,
 
   },
+
   props: ['type'],
+
+  data() {
+    return {
+    }
+  },
+
+  computed: {
+    isVisible() {
+      return this.$store.state.isVisible;
+    },
+    isLogged() {
+      return this.$store.state.isLogged;
+    }
+  },
+
+  methods: {
+    showDialog() {
+      this.$store.commit('showDialog');
+    }
+  },
+
   setup(props) {
     const heroLinks = reactive(links);
-
-    const [isVisible, showDialog, hideDialog] = useDialog();
     const recievedMode = ref(props.type).value;
-    const isLogged = false;
+
     const mode = computed(() => {
       let finalMode;
       if (recievedMode === 'small') {
@@ -88,24 +106,9 @@ export default {
       return finalMode;
     }).value;
 
-    const showDialog1 = () => {
-      if (isVisible) {
-        hideDialog()
-      } else {
-        showDialog();
-      }
-      console.log(isVisible)
-      // console.log(isVisible)
-      // console.log(showDialog)
-      // console.log(hideDialog)
-
-    }
-
     return {
       heroLinks,
       mode,
-      isLogged,
-      showDialog1,
     }
   }
 }
