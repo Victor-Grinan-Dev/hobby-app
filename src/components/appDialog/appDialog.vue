@@ -15,8 +15,8 @@
         </section>
         <section>
           <div name="actions">
-            <app-btn type='primary' content='confirm' :fx='hide'></app-btn>
-            <app-btn type='secundary' content='close' :fx='hide'></app-btn>
+            <app-btn type='primary' caption='confirm' :fx='hide'></app-btn>
+            <app-btn type='secundary' caption='close' :fx='hide'></app-btn>
           </div>
         </section>
       </dialog>
