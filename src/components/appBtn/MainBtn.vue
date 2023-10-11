@@ -7,7 +7,9 @@
 </template>
 
 <script>
+
 export default {
+
     props: ['content', 'fx', 'extraClass'],
 }
 </script>
