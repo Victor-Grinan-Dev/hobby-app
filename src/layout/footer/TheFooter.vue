@@ -36,7 +36,7 @@
                 {{ footerlinks[3] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
-              <div v-else class='cursor-pointer capitalize' @click='showDialog'>
+              <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
                 {{ footerlinks[3] }}X
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </div>
@@ -89,12 +89,8 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 import { links } from '../../appsetup/appSetup';
+import useDialog from '@/hooks/dialog';
 export default {
-  methods: {
-    showDialog() {
-      this.$store.commit('showDialog');
-    }
-  },
   computed: {
     isVisible() {
       return this.$store.state.isVisible;
@@ -104,6 +100,7 @@ export default {
     }
   },
   setup() {
+    const { activate } = useDialog();
     const content = ref('Footer');
     const year = computed(() => {
       {
@@ -112,7 +109,12 @@ export default {
     });
     const footerlinks = reactive(links);
 
+    const activateDialog = () => {
+      activate('access denied!', 'You must be logged in to see the your profile');
+    }
     return {
+
+      activateDialog,
       content,
       year,
       footerlinks,

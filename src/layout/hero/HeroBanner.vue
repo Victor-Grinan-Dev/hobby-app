@@ -33,8 +33,8 @@
             {{ heroLinks[3] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
-          <div v-else class='cursor-pointer capitalize' @click='showDialog'>
-            {{ heroLinks[3] }}X
+          <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
+            {{ heroLinks[3] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </div>
         </div>
@@ -62,6 +62,7 @@ import { ref, reactive, computed } from 'vue';
 import HamburgerMenu from './hamburgerMenu/HamburgerMenu.vue';
 import TheCollapse from './collapse/TheCollapse';
 import { links } from '../../appsetup/appSetup';
+import useDialog from '../../hooks/dialog';
 
 export default {
   components: {
@@ -95,7 +96,7 @@ export default {
   setup(props) {
     const heroLinks = reactive(links);
     const recievedMode = ref(props.type).value;
-
+    const { activate } = useDialog();
     const mode = computed(() => {
       let finalMode;
       if (recievedMode === 'small') {
@@ -106,7 +107,11 @@ export default {
       return finalMode;
     }).value;
 
+    const activateDialog = () => {
+      activate('Access Denied!', 'Only Logged in users can see their profiles.')
+    }
     return {
+      activateDialog,
       heroLinks,
       mode,
     }

@@ -10,6 +10,7 @@ const store = createStore({
     return {
       isCollapseOpen: false,
       /*** DIALOG ***/
+      dialogTitle: "testing warning!",
       isDialogVisible: false,
       dialogContent: "test content",
       isLogged: false,
@@ -54,6 +55,9 @@ const store = createStore({
     hideDialog(state) {
       state.isDialogVisible = false;
     },
+    setDialogTitle(state, payload) {
+      state.dialogTitle = payload;
+    },
     setDialogContent(state, payload) {
       state.dialogContent = payload;
     },
@@ -70,6 +74,9 @@ const store = createStore({
     hideDialog(context) {
       context.commit("hideDialog");
     },
+    setDialogTitle(context, payload) {
+      context.commit("setDialogTitle", payload);
+    },
     setDialogContent(context, payload) {
       context.commit("setDialogContent", payload);
     },
@@ -85,6 +92,9 @@ const store = createStore({
     /*** DIALOG ***/
     isDialogVisible(state) {
       return state.isDialogVisible;
+    },
+    dialogTitle(state) {
+      return state.dialogTitle;
     },
     dialogContent(state) {
       return state.dialogContent;
