@@ -14,30 +14,34 @@
 
         <section>
           <slot name="actions">
-            <base-button @click="hideDialog">Close</base-button>
+            <main-btn @click="hideDialog">Close</main-btn>
           </slot>
         </section>
-
-
       </dialog>
     </transition>
   </teleport>
 </template>
 
 <script>
-// import useDialog from '../../hooks/dialog'
+import useDialog from '../../hooks/dialog';
+import MainBtn from '../../components/appBtn/MainBtn.vue'
+import { ref } from 'vue'
 export default {
+  comsponents: { MainBtn, },
+  setup() {
+    const [isVisible, showDialog, hideDialog] = useDialog();
+    console.log('isVisible', isVisible)
 
-  // setup() {
-  //   const [isVisible, showDialog, hideDialog] = useDialog();
-  //   const title = 'test';
-  //   return {
-  //     title,
-  //     isVisible,
-  //     showDialog,
-  //     hideDialog,
-  //   }
-  // }
+
+    const title = ref('test');
+    return {
+      title,
+      isVisible,
+      showDialog,
+      hideDialog,
+    }
+
+  }
 };
 </script>
 
