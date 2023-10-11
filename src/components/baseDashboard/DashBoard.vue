@@ -1,12 +1,7 @@
 <template>
     <div class='dashboard relative min-h-full pb-4'>
         <hero-banner type='small' />
-
-        <section class='heading flex flex-col mx-auto max-w-6xl'>
-            <slot name='headding'>DashBoard:</slot>
-        </section>
-
-        <section class='dataContainer relative h-30vh flex md:px-4 '>
+        <section class='dataContainer relative flex'>
             <slot>
                 <div class='flex flex-col justify-center items-center place-self-center mx-auto max-w-6xl'>
                     {{ content }}

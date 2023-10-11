@@ -1,5 +1,5 @@
 <template>
-  <div className='md:hidden ' @click="openCloseHamburger">
+  <div className='md:hidden ' @click="toggleCollapse">
     <div id='menu-btn' class='hamburger z-40 block focus:outline-none border-none' :class="classNames">
       <span className="hamburger-top"></span>
       <span className="hamburger-middle"></span>
@@ -18,21 +18,21 @@ export default {
     const content = ref('HamburgerMenu');
 
     const isOpen = computed(() => {
-      return store.getters.isOpen;
+      return store.getters.isCollapseOpen;
     });
 
     const classNames = computed(() => {
       return isOpen.value === true ? "open md:visible" : "md:hidden"
     });
 
-    function openCloseHamburger() {
-      store.dispatch('toogleMenu'); //dispatch the actions
+    function toggleCollapse() {
+      store.dispatch('toggleCollapse'); //dispatch the actions
     }
     return {
       content,
       classNames,
       isOpen,
-      openCloseHamburger,
+      toggleCollapse,
     }
   }
 }

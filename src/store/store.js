@@ -8,7 +8,12 @@ const store = createStore({
   },
   state() {
     return {
-      isOpen: false,
+      isCollapseOpen: false,
+      /*** DIALOG ***/
+      dialogTitle: "testing warning!",
+      isDialogVisible: false,
+      dialogContent: "test content",
+      isLogged: false,
       events: [
         // pooperBowlModule,
         {
@@ -39,21 +44,60 @@ const store = createStore({
     };
   },
   mutations: {
-    expandCollapse(state) {
-      state.isOpen = !state.isOpen;
+    toggleCollapse(state) {
+      state.isCollapseOpen = !state.isCollapseOpen;
+    },
+
+    /*** DIALOG ***/
+    showDialog(state) {
+      state.isDialogVisible = true;
+    },
+    hideDialog(state) {
+      state.isDialogVisible = false;
+    },
+    setDialogTitle(state, payload) {
+      state.dialogTitle = payload;
+    },
+    setDialogContent(state, payload) {
+      state.dialogContent = payload;
     },
   },
   actions: {
-    toogleMenu(context) {
-      context.commit("expandCollapse");
+    toggleCollapse(context) {
+      context.commit("toggleCollapse");
+    },
+
+    /*** DIALOG ***/
+    showDialog(context) {
+      context.commit("showDialog");
+    },
+    hideDialog(context) {
+      context.commit("hideDialog");
+    },
+    setDialogTitle(context, payload) {
+      context.commit("setDialogTitle", payload);
+    },
+    setDialogContent(context, payload) {
+      context.commit("setDialogContent", payload);
     },
   },
   getters: {
-    isOpen(state) {
-      return state.isOpen;
+    isCollapseOpen(state) {
+      return state.isCollapseOpen;
     },
     events(state) {
       return state.events;
+    },
+
+    /*** DIALOG ***/
+    isDialogVisible(state) {
+      return state.isDialogVisible;
+    },
+    dialogTitle(state) {
+      return state.dialogTitle;
+    },
+    dialogContent(state) {
+      return state.dialogContent;
     },
   },
 });

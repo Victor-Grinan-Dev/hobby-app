@@ -5,21 +5,23 @@ import store from "./store/store";
 import router from "./router/router";
 
 import MainBtn from "./components/appBtn/MainBtn.vue";
-
+import AppBtn from "./components/appBtn/AppBtn.vue";
+import AppDialog from "./components/appDialog/appDialog.vue";
 const app = createApp(App);
 
 // const AppDialog = defineAsyncComponent(() =>
 //   import("./components/appDialog/AppDialog.vue")
 // );
+
 app.component("main-btn", MainBtn);
-// app.component("app-dialog", AppDialog);
+app.component("app-btn", AppBtn);
+app.component("app-dialog", AppDialog);
 
 /**
 app.component("app-card", AppCard);
 app.component("app-button", AppButton);
 app.component("app-spinner", AppSpinner);
 app.component("app-dialog", AppDialog);
-
 */
 
 app.use(store);

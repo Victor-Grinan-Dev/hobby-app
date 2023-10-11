@@ -29,10 +29,14 @@
           </router-link>
         </div>
         <div className="group">
-          <router-link :to='heroLinks[3]'>
+          <router-link v-if='isLogged' :to='heroLinks[3]'>
             {{ heroLinks[3] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
+          <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
+            {{ heroLinks[3] }}
+            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
+          </div>
         </div>
         <div className="group">
           <router-link :to='heroLinks[4]'>
@@ -58,18 +62,41 @@ import { ref, reactive, computed } from 'vue';
 import HamburgerMenu from './hamburgerMenu/HamburgerMenu.vue';
 import TheCollapse from './collapse/TheCollapse';
 import { links } from '../../appsetup/appSetup';
+import useDialog from '../../hooks/dialog';
 
 export default {
   components: {
     HamburgerMenu,
     TheCollapse,
+
   },
+
   props: ['type'],
+
+  data() {
+    return {
+    }
+  },
+
+  computed: {
+    isVisible() {
+      return this.$store.state.isVisible;
+    },
+    isLogged() {
+      return this.$store.state.isLogged;
+    }
+  },
+
+  methods: {
+    showDialog() {
+      this.$store.commit('showDialog');
+    }
+  },
+
   setup(props) {
     const heroLinks = reactive(links);
-
     const recievedMode = ref(props.type).value;
-
+    const { activate } = useDialog();
     const mode = computed(() => {
       let finalMode;
       if (recievedMode === 'small') {
@@ -80,8 +107,11 @@ export default {
       return finalMode;
     }).value;
 
-
+    const activateDialog = () => {
+      activate('Access Denied!', 'Only Logged in users can see their profiles.')
+    }
     return {
+      activateDialog,
       heroLinks,
       mode,
     }

@@ -32,10 +32,14 @@
               </router-link>
             </div>
             <div className="h-10 group">
-              <router-link :to='footerlinks[3]'>
+              <router-link v-if='isLogged' :to='footerlinks[3]'>
                 {{ footerlinks[3] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
+              <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
+                {{ footerlinks[3] }}
+                <div className="group-hover:border-b group hover:border-blue-50"></div>
+              </div>
             </div>
             <div className="h-10 group">
               <router-link :to='footerlinks[4]'>
@@ -85,8 +89,18 @@
 <script>
 import { ref, reactive, computed } from 'vue';
 import { links } from '../../appsetup/appSetup';
+import useDialog from '@/hooks/dialog';
 export default {
+  computed: {
+    isVisible() {
+      return this.$store.state.isVisible;
+    },
+    isLogged() {
+      return this.$store.state.isLogged;
+    }
+  },
   setup() {
+    const { activate } = useDialog();
     const content = ref('Footer');
     const year = computed(() => {
       {
@@ -95,7 +109,12 @@ export default {
     });
     const footerlinks = reactive(links);
 
+    const activateDialog = () => {
+      activate('access denied!', 'You must be logged in to see the your profile');
+    }
     return {
+
+      activateDialog,
       content,
       year,
       footerlinks,

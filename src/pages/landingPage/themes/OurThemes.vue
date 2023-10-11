@@ -5,7 +5,7 @@
                 <h2 className="text-3xl text-center uppercase md:text-left md:text-5xl">
                     Our Themes
                 </h2>
-                <main-btn :content='cta' extraClass='hidden md:block'></main-btn>
+                <main-btn :caption='cta' extraClass='hidden md:block'></main-btn>
 
             </div>
 
@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex justify-center mt-10 mb-10 mx-6 md:hidden">
-            <main-btn :content='cta' extraClass='w-full md:hidden'></main-btn>
+            <main-btn :caption='cta' extraClass='w-full md:hidden'></main-btn>
         </div>
     </section>
 </template>
@@ -34,11 +34,6 @@ export default {
         const isOpen = ref(false);
         const cta = 'Join Us Now!'
         const events = store.getters.events;
-        // console.log(events[0].id);
-        // console.log(events[0].name);
-        // console.log(events[0].desktopImg);
-        // console.log(events[0].mobileImg);
-
         return {
             isOpen,
             cta,
@@ -47,5 +42,4 @@ export default {
     }
 }
 
-//<themes-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id' :desktopImg='eventdesktopImg' :mobileImg='event.mobileImg'></themes-item >
 </script>
