@@ -37,7 +37,7 @@
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
               <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
-                {{ footerlinks[3] }}X
+                {{ footerlinks[3] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </div>
             </div>
