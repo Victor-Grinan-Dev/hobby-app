@@ -5,7 +5,7 @@
                 <h2 className="text-3xl text-center uppercase md:text-left md:text-5xl">
                     Our Themes
                 </h2>
-                <main-btn :content='cta' extraClass='hidden md:block'></main-btn>
+                <main-btn :caption='cta' extraClass='hidden md:block'></main-btn>
 
             </div>
 
@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex justify-center mt-10 mb-10 mx-6 md:hidden">
-            <main-btn :content='cta' extraClass='w-full md:hidden'></main-btn>
+            <main-btn :caption='cta' extraClass='w-full md:hidden'></main-btn>
         </div>
     </section>
 </template>
