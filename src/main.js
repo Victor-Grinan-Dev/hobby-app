@@ -5,6 +5,7 @@ import store from "./store/store";
 import router from "./router/router";
 
 import MainBtn from "./components/appBtn/MainBtn.vue";
+import AppBtn from "./components/appBtn/AppBtn.vue";
 import AppDialog from "./components/appDialog/appDialog.vue";
 const app = createApp(App);
 
@@ -13,6 +14,7 @@ const app = createApp(App);
 // );
 
 app.component("main-btn", MainBtn);
+app.component("app-btn", AppBtn);
 app.component("app-dialog", AppDialog);
 
 /**
