@@ -17,9 +17,10 @@ export default {
     },
     props: ['title'],
     setup() {
-        const content = ref('Nothing here yet');
         const route = useRoute();
-        console.log(route.params);
+        const page = route.fullPath.split("/")[1]
+        const content = ref('Nothing in the ' + page + ' page yet');
+
         return {
             content,
         }

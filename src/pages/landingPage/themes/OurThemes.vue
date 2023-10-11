@@ -34,11 +34,6 @@ export default {
         const isOpen = ref(false);
         const cta = 'Join Us Now!'
         const events = store.getters.events;
-        // console.log(events[0].id);
-        // console.log(events[0].name);
-        // console.log(events[0].desktopImg);
-        // console.log(events[0].mobileImg);
-
         return {
             isOpen,
             cta,
@@ -47,5 +42,4 @@ export default {
     }
 }
 
-//<themes-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id' :desktopImg='eventdesktopImg' :mobileImg='event.mobileImg'></themes-item >
 </script>

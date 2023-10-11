@@ -8,3 +8,6 @@
 ## References.
 
 - read from spread sheet: https://www.youtube.com/watch?v=vtq2xTWK7h4&t=10s
+
+- 00 to player
+- when creating a team you should be able to update players.

@@ -1,52 +1,61 @@
 <template>
   <teleport to="body">
-    <div v-if="show" @click="tryClose" class="backdrop"></div>
+    <div v-if="isDialog" @click="hide" class="backdrop"></div>
     <transition name="dialog">
-      <dialog open v-if="show">
+      <dialog open v-if="isDialog">
         <header>
-          <slot name="header">
-            <h2>{{ title }}</h2>
-          </slot>
+          <div name="header">
+            <h2 class='capitalize'>{{ dialogTitle }}</h2>
+          </div>
         </header>
         <section>
-          <slot></slot>
+          <div>
+            {{ dialogContent }}
+          </div>
         </section>
-        <menu v-if="!fixed">
-          <slot name="actions">
-            <base-button @click="tryClose">Close</base-button>
-          </slot>
-        </menu>
+        <section>
+          <div name="actions">
+            <app-btn type='primary' content='confirm' :fx='hide'></app-btn>
+            <app-btn type='secundary' content='close' :fx='hide'></app-btn>
+          </div>
+        </section>
       </dialog>
     </transition>
   </teleport>
 </template>
 
 <script>
+import useDialog from '../../hooks/dialog';
+import MainBtn from '../../components/appBtn/MainBtn.vue';
+
 export default {
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
+  comsponents: { MainBtn, },
+  computed: {
+    isDialog() {
+      return this.$store.getters['isDialogVisible'];
     },
-    title: {
-      type: String,
-      required: false,
+    dialogTitle() {
+      return this.$store.getters['dialogTitle'];
     },
-    fixed: {
-      type: Boolean,
-      required: false,
-      default: false,
+    dialogContent() {
+      return this.$store.getters['dialogContent'];
     },
   },
-  emits: ["close"],
-  methods: {
-    tryClose() {
-      if (this.fixed) {
-        return;
-      }
-      this.$emit("close");
-    },
-  },
+  setup() {
+    const { isVisible, title, content, show, hide, setContent } = useDialog();
+    const defaultCaption = 'close';
+
+    return {
+      title,
+      isVisible,
+      content,
+      show,
+      hide,
+      setContent,
+      defaultCaption,
+    }
+
+  }
 };
 </script>
 
@@ -58,7 +67,7 @@ export default {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  z-index: 10;
+  z-index: 1000;
 }
 
 dialog {
@@ -74,6 +83,7 @@ dialog {
   margin: 0;
   overflow: hidden;
   background-color: white;
+  z-index: 1001;
 }
 
 header {
