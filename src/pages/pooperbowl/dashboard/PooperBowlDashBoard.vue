@@ -59,13 +59,9 @@ export default {
         const content = ["Fixtures & Results", "Matchups Count"];
 
         // const currentComponent = ref('news-feed');
-
-
-
         return {
             title,
             content,
-
         }
     },
     data() {
