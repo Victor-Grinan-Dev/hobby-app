@@ -22,7 +22,7 @@
                 :class='{ "bg-pink-700": currentTab === "league-teams" }' @click='switchComponents("league-teams", false)'>
                 teams</div>
         </div>
-        <div class='side-nav fixed  top-32 bottom-0 bg-pink-900 flex flex-col px-2 py-6'
+        <div class='side-nav relative top-0 bottom-0 h-full bg-pink-900 flex flex-col px-2 py-6'
             :class='{ "-translate-x-full": isHidden }'>
 
             <div class='handle absolute md:hidden bg-pink-900 hover:bg-pink-700 cursor-pointer pr-1' @click='toggleSideNav'>
