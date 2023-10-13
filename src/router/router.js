@@ -16,6 +16,7 @@ const OurEvents = () => import("../pages/events/OurEvents.vue");
 const OurProducts = () => import("../pages/products/OurProducts.vue");
 const MyProfile = () => import("../pages/profile/MyProfile.vue");
 const JoinUs = () => import("../pages/join/JoinUs.vue");
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -26,7 +27,16 @@ const router = createRouter({
     { path: "/products", component: OurProducts },
     { path: "/profile", component: MyProfile },
     { path: "/joinUs", component: JoinUs },
-    { path: "/events/pooperbowl", component: PooperBowl },
+    {
+      path: "/events/pooperbowl",
+      component: PooperBowl,
+      // children: [
+      //   { path: "feed", component: null },
+      //   { path: "leaderboard", component: null },
+      //   { path: "teams", component: null },
+      //   { path: "fixtures", component: FixturesTable },
+      // ],
+    },
     { path: "/events/pooperbowl/team/:id", component: PooperTeamDetails },
     {
       path: "/events/:id",

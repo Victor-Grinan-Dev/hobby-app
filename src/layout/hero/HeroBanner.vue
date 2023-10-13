@@ -120,6 +120,19 @@ export default {
 </script>
 
 <style scoped>
+#hero {
+  background-image: url('../../images/pngs/gigant-dice.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media(max-width:576px) {
+  #hero {
+    background-image: url('../../images/pngs/gigant-dice.png');
+    background-size: center;
+  }
+}
+
 .small {
   height: 8rem;
   padding-top: 3rem;
