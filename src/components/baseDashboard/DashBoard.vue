@@ -1,7 +1,7 @@
 <template>
-    <div class='dashboard relative min-h-full pb-4'>
+    <div class='dashboard relative min-h-full flex-1 top-0 bottom-0'>
         <hero-banner type='small' />
-        <section class='dataContainer relative flex'>
+        <section class='data-container relative flex flex-1'>
             <slot>
                 <div class='flex flex-col justify-center items-center place-self-center mx-auto max-w-6xl'>
                     {{ content }}
@@ -34,9 +34,8 @@ export default {
     min-height: 40vh;
 }
 
-.dataContainer {
+.data-container {
     min-height: 40vh;
-    /* background-color: blue; */
 }
 </style>
 

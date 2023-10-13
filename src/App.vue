@@ -1,5 +1,5 @@
 <template>
-  <div class='min-h-screen flex flex-col justify-between'>
+  <div class='app.vue min-h-screen flex flex-col justify-between'>
     <router-view>
     </router-view>
     <the-footer />
@@ -59,76 +59,9 @@ code {
     monospace;
 }
 
-#hero {
-  background-image: url('./images/pngs/gigant-dice.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-@media(max-width:576px) {
-  #hero {
-    background-image: url('./images/pngs/gigant-dice.png');
-    background-size: center;
-  }
-}
-
-/* HAMBURGER ANIMATION */
-.hamburger {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  transition: all 0.25s;
-  position: relative;
-}
-
-.hamburger-top,
-.hamburger-middle,
-.hamburger-bottom {
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  left: 0;
-  top: 0;
-  background: #fff;
-  transform: rotate(0);
-  transition: all .5s;
-}
-
-.hamburger-middle {
-  transform: translateY(7px);
-}
-
-.hamburger-bottom {
-  transform: translateY(14px);
-}
-
-.open {
-  transform: rotate(90deg);
-  position: fixed;
-  right: 30px;
-  visibility: visible;
-}
-
-.closed {
-  display: none;
-}
-
-.open .hamburger-top {
-  transform: rotate(45deg) translateY(6px) translateX(6px)
-}
-
-.open .hamburger-middle {
-  display: none
-}
-
-.open .hamburger-bottom {
-  transform: rotate(-45deg) translateY(6px) translateX(-6px)
-}
-
-.items-container {
+/* .items-container {
   @apply flex flex-col justify-between w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8 mb-8
-}
-
+} */
 /* ROUTING ANIMATION */
 .route-enter-from {
   opacity: 0;
