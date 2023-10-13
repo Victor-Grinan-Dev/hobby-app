@@ -37,12 +37,12 @@ import DashBoard from '../../../components/baseDashboard/DashBoard';
 // import BaseCard from '../../../components/baseCard/BaseCard';
 // import OverallView from './OverallView';
 // import LeagueTable from './LeagueTable';
-import SideNav from '../../../components/sideNav/SideNav';
+import SideNav from './components/sideNav/SideNav';
 
-import FixturesTable from './FixturesTable.vue';
-import NewsFeed from './NewsFeed.vue';
-import LeaderBoards from './LeaderBoards.vue';
-import LeagueTeams from './LeagueTeams.vue';
+import FixturesTable from './components/FixturesTable.vue';
+import NewsFeed from './components/NewsFeed.vue';
+import LeaderBoards from './components/LeaderBoards.vue';
+import LeagueTeams from './components/LeagueTeams.vue';
 export default {
     components: {
         DashBoard,

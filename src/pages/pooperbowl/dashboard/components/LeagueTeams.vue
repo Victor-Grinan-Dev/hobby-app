@@ -2,7 +2,7 @@
     <div class='league-table'>
         <h1>{{ content }}</h1>
         <br>
-        <ul v-if='hasTeams' class='teams-container flex flex-wrap justify-center gap-2'>
+        <ul v-if='hasTeams' class='teams-container gap-1 flex flex-wrap justify-center md:gap-2'>
             <!-- <p> Could this be a carrousel ????? </p> -->
             <team-item v-for='team in filteredTeams' :key='team.id' :id='team.id' :title='team.team' :logo='team.logo'
                 :color='team.color' :race='team.race' />
