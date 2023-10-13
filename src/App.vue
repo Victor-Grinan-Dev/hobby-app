@@ -59,9 +59,10 @@ code {
     monospace;
 }
 
-/* .items-container {
+.items-container {
   @apply flex flex-col justify-between w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8 mb-8
-} */
+}
+
 /* ROUTING ANIMATION */
 .route-enter-from {
   opacity: 0;
