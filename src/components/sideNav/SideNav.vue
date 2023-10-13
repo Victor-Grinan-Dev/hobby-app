@@ -3,7 +3,9 @@
         <div class='static-side-nav relative hidden  min-h-full top-0 bottom-0 bg-pink-900 md:flex flex-col px-2 py-6'>
             <!-- TODO: MAP THIS MESS (multiple levels of emit)
             <SideNavItem v-for='tab in tabs' :key='tab' :name='tab.name' :code='tab.code'
-                :isSelected='currentTab === tab.code' :fn='switchComponents(tab.code, false)' />
+                :isSelected='currentTab === tab.code' :fn='switchComponents(tab.code, false)'   height: 8rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;/>
             -->
             <div class='side-item capitalize cursor-pointer px-1 rounded'
                 :class='{ "bg-pink-700": currentTab === "news-feed" }' @click='switchComponents("news-feed", false)'>news
@@ -20,7 +22,7 @@
                 :class='{ "bg-pink-700": currentTab === "league-teams" }' @click='switchComponents("league-teams", false)'>
                 teams</div>
         </div>
-        <div class='side-nav fixed top-0 bottom-0 bg-pink-900 flex flex-col px-2 py-6'
+        <div class='side-nav fixed  top-32 bottom-0 bg-pink-900 flex flex-col px-2 py-6'
             :class='{ "-translate-x-full": isHidden }'>
 
             <div class='handle absolute md:hidden bg-pink-900 hover:bg-pink-700 cursor-pointer pr-1' @click='toggleSideNav'>
@@ -104,7 +106,7 @@ export default {
 
 .handle {
     height: 25px;
-    right: -15px;
+    right: -13px;
     top: 10px;
     border-radius: 0 100% 100% 0;
 }

@@ -59,7 +59,7 @@ export default {
         const title = "Pooper Bowl IV"
         const content = ["Fixtures & Results", "Matchups Count"];
 
-        // const currentComponent = ref('news-feed');
+
         return {
             title,
             content,
@@ -72,7 +72,6 @@ export default {
     },
     methods: {
         switchComponent(comp) {
-            console.log('parent component: ', comp)
             this.currentComponent = comp;
         }
     }
