@@ -1,5 +1,5 @@
 <template>
-    <div class='dashboard relative min-h-full flex-1 top-0 bottom-0'>
+    <div class='dashboard relative min-h-full flex-1 top-0 bottom-0 bg-slate-200'>
         <hero-banner type='small' />
         <section class='data-container relative flex flex-1'>
             <slot>
