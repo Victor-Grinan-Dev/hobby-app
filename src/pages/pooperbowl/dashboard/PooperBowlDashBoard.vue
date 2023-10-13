@@ -4,6 +4,7 @@
         <dash-board>
             <side-nav @switchComponent='switchComponent($event)' />
             <div class='pooper-dashboard flex flex-col w-full'>
+
                 <h2 class='text-3xl ml-4'>{{ title }}</h2>
 
                 <transition name="route" mode="out-in">
