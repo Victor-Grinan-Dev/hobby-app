@@ -4,7 +4,7 @@
             <div class='team-card'>
                 <div class='data-container'>
                     <div class='header-container'>
-                        <img src="../../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
+                        <img src="../../../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
                     </div>
                     <div class='player-color' :style='{ "background-color": color }'>
                         <div class='team-logo-container' :style='{ backgroundColor: cardBg }'>
@@ -30,13 +30,13 @@
 <script>
 import { ref } from 'vue';
 
-import BarsChart from '../../../../components/appChart/BarsChart.vue';
+import BarsChart from '../../../../../components/appChart/BarsChart.vue';
 export default {
     props: ["id", 'title', 'logo', 'color', 'race'],
     components: { BarsChart },
     setup(props) {
         const content = ref('Nothing here yet');
-        const teamLogo = ref(require('../../../../assets/teamLogos/' + props.logo + '.png'));
+        const teamLogo = ref(require('../../../../../assets/teamLogos/' + props.logo + '.png'));
         const cardBg = ref('white')
         const archievements = [
             { title: 'tochdowns', value: 50 }, { title: 'casualties', value: 72 }, { title: 'passes', value: 10 }
