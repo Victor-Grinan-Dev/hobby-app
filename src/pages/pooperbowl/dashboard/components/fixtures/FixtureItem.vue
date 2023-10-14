@@ -1,14 +1,18 @@
 <template>
-    <div>
-        <h1>{{ content }}</h1>
-    </div>
+    <base-component>
+        {{ content }}
+    </base-component>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
+import BaseComponent from '../BaseComponent.vue';
 export default {
+    components: {
+        BaseComponent,
+    },
     setup() {
-        const content = ref('Nothing here yet');
+        const content = ref('Fixtures component');
 
         return {
             content,
