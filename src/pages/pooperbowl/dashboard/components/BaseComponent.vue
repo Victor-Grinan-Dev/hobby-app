@@ -1,6 +1,6 @@
 
 <template>
-    <div class="leaderboard-component relative px-4 md:px-6">
+    <div class="leaderboard-component relative pr-4 md:px-6">
         <slot>
             {{ content }}
         </slot>
