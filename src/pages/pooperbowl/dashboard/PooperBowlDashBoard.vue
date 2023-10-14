@@ -61,7 +61,7 @@ export default {
     },
     data() {
         return {
-            currentComponent: "league-teams",
+            currentComponent: "news-feed",
             /**
                 name: "feed",
                 code: "news-feed"
