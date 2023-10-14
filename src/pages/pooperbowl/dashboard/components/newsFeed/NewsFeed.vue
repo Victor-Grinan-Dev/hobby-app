@@ -1,6 +1,34 @@
 <template>
     <base-component>
         <p class='bg-blue-500'>{{ content || "News Feed" }}</p>
+        <div class="feed relative flex flex-col items-end mb-3" v-for='feed in feeds' :key='feed.id'>
+            <div class=' flex flex-col items-center md:items-start bg-gray-500 mb-1 py-2 rounded-xl'>
+                <div class='flex items-center mb-1 w-full'>
+                    <div class='user-img relative w-10 h-10 rounded-full bg-black ml-1'></div>
+
+                    <p class="username relative capitalize ml-1">{{ feed.author }}:</p>
+                </div>
+                <div class='image-container bg-black'></div>
+
+                <div>
+                    <p class='feed-text px-2'>{{ feed.content }}</p>
+                </div>
+                <div class="likes-area flex" v-if='feed.likes'>
+                    <div class='likes'>❤️</div>
+                    <div class='likes-amount'>{{ feed.likes }}</div>
+                </div>
+            </div>
+            <div class='comment-item relative flex flex-col items-start justify-center p-2 rounded-xl bg-gray-500 mb-1'
+                v-for='comment in feed.comments' :key='comment.id'>
+                <div class='flex items-center gap-2'>
+                    <div class='user-img relative w-10 h-10 rounded-full bg-black ml-1'></div>
+                    <p class="username relative capitalize">{{ comment.author }}:</p>
+                </div>
+                <div class='pl-2'>
+                    <p class='comment-content relative '>{{ comment.comment }}</p>
+                </div>
+            </div>
+        </div>
     </base-component>
 </template>
 
@@ -46,7 +74,7 @@ export default {
                         },
                         {
                             id: "2b",
-                            comment: "I have one for free, if you want it",
+                            comment: "I have one for free, if you want it... but its full of hairs",
                             author: "pontus",
                         },
                     ],
@@ -65,32 +93,14 @@ export default {
 }
 /*
     <div class='news-container max-h-screen'>
-        <div class="feed relative flex flex-col mb-3" v-for='feed in feeds' :key='feed.id'>
+        
 
-            <div class=' flex flex-col items-center md:items-start bg-gray-500 mb-1 p-2 rounded-xl'>
-                <div class='flex items-center mb-1 w-full'>
-                    <div class='user-img relative w-10 h-10 rounded-full bg-black ml-1'></div>
+            
 
-                    <p class="username relative capitalize ml-1">{{ feed.author }}:</p>
-                </div>
-                <div class='image-container h-40 w-60 md:h-64 md:w-64 bg-black'></div>
-                <div>
-                    <p>{{ feed.content }}</p>
-                </div>
-                <div class="likes-area flex" v-if='feed.likes'>
-                    <div class='likes'>❤️</div>
-                    <div class='likes-amount'>{{ feed.likes }}</div>
-                </div>
-            </div>
+               
 
-            <div class='comment-item relative flex items-center rounded-full bg-gray-500 mb-1'
-                v-for='comment in feed.comments' :key='comment.id'>
-                <div class='user-img relative w-10 h-10 rounded-full bg-black ml-1'></div>
-                <div class='pl-2'>
-                    <p class="username relative capitalize">{{ comment.author }}:</p>
-                    <p class='comment-content relative '>{{ comment.comment }}</p>
-                </div>
-            </div>
+
+
         </div>
     </div>
 */
@@ -99,6 +109,11 @@ export default {
 <style scoped>
 .news-container {
     overflow-y: scroll;
+}
+
+.image-container {
+    height: 150px;
+    width: 240px;
 }
 
 .comment-item {
