@@ -4,7 +4,7 @@
             <div class='team-card'>
                 <div class='data-container'>
                     <div class='header-container'>
-                        <img src="../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
+                        <img src="../../../../../images/pngs/gigant-dice.png" alt="header" class='header-img'>
                     </div>
                     <div class='player-color' :style='{ "background-color": color }'>
                         <div class='team-logo-container' :style='{ backgroundColor: cardBg }'>
@@ -18,7 +18,7 @@
                         <p class='team-race text-xs font-mono'>{{ race }}</p>
                     </div>
 
-                    <app-chart :textParams='["TDs", "Cas", "Pass"]' :numericParams='[50, 72, 10]' :max='100'
+                    <bars-chart :textParams='["TDs", "Cas", "Pass"]' :numericParams='[50, 72, 10]' :max='100'
                         :colors='["#63B7AF", "#E57C23", "#93BFCF"]' :chartWidth='200' :type='"integer"' :orientation='"v"'
                         :barThickness='"85px"' />
                 </div>
@@ -30,13 +30,13 @@
 <script>
 import { ref } from 'vue';
 
-import AppChart from '../../../components/appChart/BarchartHorizontal.vue';
+import BarsChart from '../../../../../components/appChart/BarsChart.vue';
 export default {
     props: ["id", 'title', 'logo', 'color', 'race'],
-    components: { AppChart },
+    components: { BarsChart },
     setup(props) {
         const content = ref('Nothing here yet');
-        const teamLogo = ref(require('../../../assets/teamLogos/' + props.logo + '.png'));
+        const teamLogo = ref(require('../../../../../assets/teamLogos/' + props.logo + '.png'));
         const cardBg = ref('white')
         const archievements = [
             { title: 'tochdowns', value: 50 }, { title: 'casualties', value: 72 }, { title: 'passes', value: 10 }

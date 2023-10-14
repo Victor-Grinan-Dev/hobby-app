@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>{{ content }}</h1>
+    <div class='fixtures-container bg-teal-500'>
+        {{ content }}
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 export default {
     setup() {
-        const content = ref('Feed component');
+        const content = ref('Fixtures');
 
         return {
             content,

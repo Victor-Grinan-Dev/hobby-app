@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 export default {
     setup() {
-        const content = ref('Fixtures');
+        const content = ref('Nothing here yet');
 
         return {
             content,

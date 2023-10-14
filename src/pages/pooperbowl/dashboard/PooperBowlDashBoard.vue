@@ -37,19 +37,17 @@ import DashBoard from '../../../components/baseDashboard/DashBoard';
 // import BaseCard from '../../../components/baseCard/BaseCard';
 // import OverallView from './OverallView';
 // import LeagueTable from './LeagueTable';
-import SideNav from '../../../components/sideNav/SideNav';
-
-import FixturesTable from './FixturesTable.vue';
-import NewsFeed from './NewsFeed.vue';
-import LeaderBoards from './LeaderBoards.vue';
-import LeagueTeams from './LeagueTeams.vue';
+import SideNav from './components/sideNav/SideNav';
+import LeaderBoards from './components/leaderBoard/LeaderBoards.vue'
+import FixturesTable from './components/fixtures/FixturesTable.vue';
+import NewsFeed from './components/newsFeed/NewsFeed.vue';
+import LeagueTeams from './components/leagueTeams/LeagueTeams.vue';
 export default {
     components: {
         DashBoard,
         // BaseCard,
         // OverallView,
         SideNav,
-
         FixturesTable,
         NewsFeed,
         LeaderBoards,
@@ -57,12 +55,8 @@ export default {
     },
     setup() {
         const title = "Pooper Bowl IV"
-        const content = ["Fixtures & Results", "Matchups Count"];
-
-
         return {
             title,
-            content,
         }
     },
     data() {
