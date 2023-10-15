@@ -7,12 +7,12 @@
 
                 <h2 class='text-3xl ml-4'>{{ title }}</h2>
 
-                <transition name="route" mode="out-in">
+                <transition name="component" mode="out-in">
                     <component :is="currentComponent" class='component-area relative ml-4'>
                     </component>
                 </transition>
 
-                <!-- inner router for diferent components 
+                <!-- inner componentr for diferent components 
            
             <div class=' flex align-top flex-wrap justify-start  items-start text-center gap-4'>
               
@@ -37,19 +37,17 @@ import DashBoard from '../../../components/baseDashboard/DashBoard';
 // import BaseCard from '../../../components/baseCard/BaseCard';
 // import OverallView from './OverallView';
 // import LeagueTable from './LeagueTable';
-import SideNav from '../../../components/sideNav/SideNav';
-
-import FixturesTable from './FixturesTable.vue';
-import NewsFeed from './NewsFeed.vue';
-import LeaderBoards from './LeaderBoards.vue';
-import LeagueTeams from './LeagueTeams.vue';
+import SideNav from './components/sideNav/SideNav';
+import LeaderBoards from './components/leaderBoard/LeaderBoards.vue'
+import FixturesTable from './components/fixtures/FixturesTable.vue';
+import NewsFeed from './components/newsFeed/NewsFeed.vue';
+import LeagueTeams from './components/leagueTeams/LeagueTeams.vue';
 export default {
     components: {
         DashBoard,
         // BaseCard,
         // OverallView,
         SideNav,
-
         FixturesTable,
         NewsFeed,
         LeaderBoards,
@@ -57,17 +55,23 @@ export default {
     },
     setup() {
         const title = "Pooper Bowl IV"
-        const content = ["Fixtures & Results", "Matchups Count"];
-
-
         return {
             title,
-            content,
         }
     },
     data() {
         return {
-            currentComponent: "news-feed"
+            currentComponent: "news-feed",
+            /**
+                name: "feed",
+                code: "news-feed"
+                name: "fixtures",
+                code: "fixtures-table"
+                name: "leaderboards",
+                code: "leader-boards"
+                name: "teams",
+                code: "league-teams"
+             */
         }
     },
     methods: {
@@ -78,11 +82,11 @@ export default {
 }
 </script>
 <style scoped>
-.route-enter-active {
+.component-enter-active {
     animation: slide-fade 0.4s ease-out;
 }
 
-.route-leave-active {
+.component-leave-active {
     animation: slide-fade 0.4s ease-in reverse;
 }
 

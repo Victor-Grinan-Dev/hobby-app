@@ -18,10 +18,8 @@ export default {
     components: {
         HeroBanner,
     },
-
     setup() {
         const content = 'Nothing here yet...';
-
         return {
             content,
         }

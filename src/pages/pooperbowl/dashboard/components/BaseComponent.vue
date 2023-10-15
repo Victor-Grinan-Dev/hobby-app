@@ -1,6 +1,9 @@
+
 <template>
-    <div>
-        <h1>{{ content }}</h1>
+    <div class="leaderboard-component relative pr-4 md:px-6">
+        <slot>
+            {{ content }}
+        </slot>
     </div>
 </template>
 
@@ -8,7 +11,7 @@
 import { ref } from 'vue'
 export default {
     setup() {
-        const content = ref('Fixtures');
+        const content = ref('base component');
 
         return {
             content,
