@@ -4,15 +4,20 @@
       className="card-container relative flex flex-col bg-white m-6 space-y-10 rounded-3xl shadow-2xl md:flex-row md:space-y-0 md:m-0 ">
       <div className="left-side p-6 md:p-20">
         <h2 className="font-mono mb-5 text-4xl font-bold">Login</h2>
+        <!--
         <p className="max-w-sm mb-12 font-sans font-light text-gray-600">
           log in with your account to upload pictures videos or music
         </p>
+-->
 
         <input type="text"
           className="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
           placeholder="Enter your email" />
+        <input type="password"
+          className="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4"
+          placeholder="Enter your password" />
         <div className="flex flex-col items-center justify-between mt-6 space-y-6 md:flex-row md:space-y-0">
-          <div className="font-thin text-cyan-700">Forgot Password</div>
+          <!--<div className="font-thin text-cyan-700">Forgot Password</div>-->
           <button
             className="w-full md:w-auto flex justify-center items-center p-6 space-x-4 font-sans font-bold text-white rounded-md shadow-sm px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90 hover:shadow-lg border transition hover:-translate-y-0.5 duration-150">
             <span>Next</span>
@@ -28,6 +33,12 @@
 
         <div className="separator mt-12 border-b border-b-gray-300"></div>
 
+        <router-link to='/join'>
+          <p className="max-w-sm mb-12 font-sans font-light text-gray-600">
+            Signup Instead
+          </p>
+        </router-link>
+        <!--
         <p className="py-6 text-sm font-thin text-center text-gray-400">
           Or Login with:
         </p>
@@ -43,18 +54,21 @@
             <span className="font-thin">Google</span>
           </button>
         </div>
+-->
       </div>
 
       <img src="../../images/pngs/gigant-dice.png" alt="water" className="w-[430px] hidden md:block" />
-      <div
-        class="group absolute -top-5 right-4 flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full md:bg-white md:top-4 hover:cursor-pointer hover:-translate-y-0.5 transition duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black group-hover:text-gray-600" viewBox="0 0 24 24"
-          stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </div>
+      <router-link to='/'
+        class='absolute -top-5 right-4 flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full md:bg-white md:top-4 hover:cursor-pointer hover:-translate-y-0.5 transition duration-150'>
+        <div class="group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black group-hover:text-gray-600" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </div>
+      </router-link>
     </div>
 
   </div>
