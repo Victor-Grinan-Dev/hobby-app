@@ -7,12 +7,12 @@
 
                 <h2 class='text-3xl ml-4'>{{ title }}</h2>
 
-                <transition name="route" mode="out-in">
+                <transition name="component" mode="out-in">
                     <component :is="currentComponent" class='component-area relative ml-4'>
                     </component>
                 </transition>
 
-                <!-- inner router for diferent components 
+                <!-- inner componentr for diferent components 
            
             <div class=' flex align-top flex-wrap justify-start  items-start text-center gap-4'>
               
@@ -61,7 +61,17 @@ export default {
     },
     data() {
         return {
-            currentComponent: "news-feed"
+            currentComponent: "news-feed",
+            /**
+                name: "feed",
+                code: "news-feed"
+                name: "fixtures",
+                code: "fixtures-table"
+                name: "leaderboards",
+                code: "leader-boards"
+                name: "teams",
+                code: "league-teams"
+             */
         }
     },
     methods: {
@@ -72,11 +82,11 @@ export default {
 }
 </script>
 <style scoped>
-.route-enter-active {
+.component-enter-active {
     animation: slide-fade 0.4s ease-out;
 }
 
-.route-leave-active {
+.component-leave-active {
     animation: slide-fade 0.4s ease-in reverse;
 }
 

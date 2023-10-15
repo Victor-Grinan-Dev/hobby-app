@@ -13,7 +13,7 @@
                     </div>
 
                     <div class='team-name font-black text-lg text-white'>
-                        <p :style='{ "color": white, fontSize: "16px", fontWeight: "900" }'>"{{
+                        <p :style='{ "color": "white", fontSize: "16px", fontWeight: "900" }'>"{{
                             title }}"</p>
                         <p class='team-race text-xs font-mono'>{{ race }}</p>
                     </div>
