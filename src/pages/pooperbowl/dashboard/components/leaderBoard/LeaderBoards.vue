@@ -3,7 +3,7 @@
         <!--        <div class='bg-purple-700'>{{ content }} tabs/filters</div>
         <div class='bg-purple-700'> <button>teams</button> <button>players</button></div>-->
         <div
-            class='leaderboards-containerflex flex-col md:flex-row flex-wrap justify-center md:justify-start py-2 items-center md:items-start gap-1 md:px-2 mb-4'>
+            class='leaderboards-container flex flex-wrap md:flex-row justify-center md:justify-start py-2 items-center md:items-start gap-1 md:px-2 mb-4'>
 
             <leaderboard-item class="item" v-for='param in params' :key='param' :param='param'>{{ param
             }}</leaderboard-item>
