@@ -1,11 +1,12 @@
 <template>
     <base-component>
-        <div class='bg-purple-700'>{{ content }} tabs/filters</div>
-        <div class='bg-purple-700'> <button>teams</button> <button>players</button></div>
+        <!--        <div class='bg-purple-700'>{{ content }} tabs/filters</div>
+        <div class='bg-purple-700'> <button>teams</button> <button>players</button></div>-->
         <div
-            class='leaderboards-container bg-slate-500 flex flex-col md:flex-row flex-wrap justify-center md:justify-start py-2 items-center md:items-start gap-1 md:px-2'>
+            class='leaderboards-containerflex flex-col md:flex-row flex-wrap justify-center md:justify-start py-2 items-center md:items-start gap-1 md:px-2 mb-4'>
 
-            <div class="item" v-for='param in params' :key='param'>{{ param }}</div>
+            <leaderboard-item class="item" v-for='param in params' :key='param' :param='param'>{{ param
+            }}</leaderboard-item>
 
         </div>
     </base-component>
@@ -14,33 +15,95 @@
 <script>
 import { ref } from 'vue';
 import BaseComponent from '../BaseComponent.vue';
+import LeaderboardItem from './LeaderboardItem.vue';
 export default {
     components: {
         BaseComponent,
+        LeaderboardItem,
     },
     data() {
         return {
             params: [
-                "td(SCORER)",
-                "-less recieved td (defense)",
-                "cas",
-                "pass",
-                "points",
-                "win",
-                "loose",
-                "Dedicated fans",
-                "SPP",
-                "team value",
-                "performance(TD + CAS + COM + INT + INJ + D + FOU)",
-                "Injuries",
-                "Deaths caused",
-                "Fouls",
-                "Sent - offs",
-                "Completions",
-                "Interceptions",
-                "Win / Draw ratio = stunty",
-                "Consecutive wins",
-                "Consecutive losses",
+                {
+                    title: "best scorer",
+                    param: "td"
+                },
+                {
+                    title: "Best defence",
+                    param: "-less recieved td"
+                },
+                {
+                    title: "most agresive",
+                    param: "cas"
+                },
+                {
+                    title: "most Passes",
+                    param: "pass"
+                },
+                {
+                    title: "league leader",
+                    param: "points"
+                },
+                {
+                    title: "most wins",
+                    param: "win"
+                },
+                {
+                    title: "most lost games",
+                    param: "loose"
+                },
+                {
+                    title: "most famous",
+                    param: "Dedicated fans"
+                },
+                {
+                    title: "most experienced",
+                    param: "SPP"
+                },
+                {
+                    title: "most expensive team",
+                    param: "team value"
+                },
+                {
+                    title: "best performance",
+                    param: "performance(TD + CAS + COM + INT + INJ + D + FOU)"
+                },
+                {
+                    title: "most injured",
+                    param: "Injuries"
+                },
+                {
+                    title: "most deadly",
+                    param: "Deaths caused"
+                },
+                {
+                    title: "dertiest team",
+                    param: "Faults"
+                },
+                {
+                    title: "most indiciplinated",
+                    param: "Sent - offs"
+                },
+                {
+                    title: "most dedicated",
+                    param: "completions"
+                },
+                {
+                    title: "Interceptions",
+                    param: "Interceptions"
+                },
+                {
+                    title: "stunty?",
+                    param: "Win / Draw ratio = stunty"
+                },
+                {
+                    title: "Good streak",
+                    param: "Consecutive wins"
+                },
+                {
+                    title: "Consecutive losses",
+                    param: "Consecutive losses"
+                },
             ]
         }
     },
@@ -55,12 +118,6 @@ export default {
 </script>
 
 <style scoped>
-.item {
-    width: 240px;
-    height: 240px;
-    background-color: blueviolet;
-}
-
 button {
     border-radius: 2px;
     border-color: black;
