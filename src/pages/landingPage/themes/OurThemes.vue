@@ -5,7 +5,7 @@
                 <h2 className="text-3xl text-center uppercase md:text-left md:text-5xl">
                     Our Themes
                 </h2>
-                <main-btn :caption='cta' extraClass='hidden md:block'></main-btn>
+                <main-btn :caption='cta' extraClass='hidden md:block' :fx='redirectToJoinUs'></main-btn>
 
             </div>
 
@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex justify-center mt-10 mb-10 mx-6 md:hidden">
-            <main-btn :caption='cta' extraClass='w-full md:hidden'></main-btn>
+            <main-btn :caption='cta' extraClass='w-full md:hidden' :fx='redirectToJoinUs'></main-btn>
         </div>
     </section>
 </template>
@@ -26,18 +26,24 @@
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import ThemeItem from './ThemeItem.vue';
+import { useRouter } from 'vue-router';
 
 export default {
     components: { ThemeItem },
     setup() {
         const store = useStore();
+        const router = useRouter();
         const isOpen = ref(false);
         const cta = 'Join Us Now!'
         const events = store.getters.events;
+        const redirectToJoinUs = () => {
+            router.push('/joinUs');
+        }
         return {
             isOpen,
             cta,
-            events
+            events,
+            redirectToJoinUs,
         }
     }
 }
