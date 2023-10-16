@@ -5,18 +5,9 @@
         {{ caption }}
     </button>
 </template>
-
 <script>
-// import { toRefs } from 'vue';
-// import { useRouter } from 'vue-router';
 
 export default {
     props: ['caption', 'fx', 'extraClass', 'routeTo'],
-    // setup(props) {
-    //     const { fx: action } = toRefs(props);
-    //     return {
-    //         action,
-    //     }
-    // }
 }
 </script>
