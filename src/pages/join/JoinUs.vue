@@ -6,19 +6,19 @@
             <form class="flex flex-col items-center w-full">
                 <input type="text"
                     class="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4 max-w-md"
-                    placeholder="Username" />
+                    placeholder="Username" autocomplete />
 
                 <input type="email"
                     class="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4 max-w-md"
-                    placeholder="Email" />
+                    placeholder="Email" autocomplete />
 
                 <input type="password"
                     class="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4 max-w-md"
-                    placeholder="Password" />
+                    placeholder="Password" autocomplete />
 
                 <input type="password"
                     class="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4 max-w-md"
-                    placeholder="Confirm password" />
+                    placeholder="Confirm password" autocomplete=false />
 
                 <div class='mt-4'>
                     <input type="checkbox" class='mx-2'>

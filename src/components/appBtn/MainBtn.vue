@@ -5,11 +5,9 @@
         {{ caption }}
     </button>
 </template>
-
 <script>
 
 export default {
-
-    props: ['caption', 'fx', 'extraClass'],
+    props: ['caption', 'fx', 'extraClass', 'routeTo'],
 }
 </script>
