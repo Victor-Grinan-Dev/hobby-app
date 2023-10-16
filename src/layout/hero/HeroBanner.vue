@@ -50,7 +50,7 @@
     </nav>
 
     <div v-if='type === "full"'
-      className="max-w-lg mt-32 mx-6 mb-32 p-4 font-sans text-4xl text-white uppercase border-4 md:p-10 md:m32 md:mx-0 md:text-4xl">
+      className="max-w-lg mt-32 mx-6 mb-32 p-4 font-sans text-4xl text-white uppercase border-4 md:p-10 md:m32 md:text-4xl">
       You can roll like we do
     </div>
   </section>
