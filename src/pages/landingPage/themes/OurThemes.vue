@@ -6,17 +6,12 @@
                     Our Themes
                 </h2>
                 <main-btn :caption='cta' extraClass='hidden md:block' :fx='redirectToJoinUs'></main-btn>
-
             </div>
-
             <div className="items-container">
-
                 <theme-item v-for='event in events' :name='event.name' :id='event.id' v-bind:key='event.id'
                     :desktopImg='event.desktopImg' :mobileImg='event.mobileImg'></theme-item>
-
             </div>
         </div>
-
         <div class="flex justify-center mt-10 mb-10 mx-6 md:hidden">
             <main-btn :caption='cta' extraClass='w-full md:hidden' :fx='redirectToJoinUs'></main-btn>
         </div>
