@@ -1,82 +1,39 @@
 <template>
-  <div class="global-container flex items-center justify-center min-h-screen bg-rose-50">
-    <div
-      className="card-container relative flex flex-col bg-white m-6 space-y-10 rounded-3xl shadow-2xl md:flex-row md:space-y-0 md:m-0 ">
-      <div className="left-side p-6 md:p-20">
-        <h2 className="font-mono mb-5 text-4xl font-bold">Login</h2>
-        <!--
-        <p className="max-w-sm mb-12 font-sans font-light text-gray-600">
-          log in with your account to upload pictures videos or music
-        </p>
--->
+  <base-page>
 
+    <div class="global-container flex flex-col items-center justify-center ">
+      <h2 class="font-mono my-5 text-4xl font-bold">Login</h2>
+      <div className="separator my-6 border-b border-b-gray-200 h-2 w-2/4 max-w-md"></div>
+
+      <form class='flex flex-col items-center w-full'>
         <input type="text"
-          className="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
+          class="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4 max-w-md"
           placeholder="Enter your email" />
         <input type="password"
-          className="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4"
+          class="w-full p-6 border boerder-gray-300 rounded-md placeholder:font-sans placeholder:font-light mt-4 max-w-md"
           placeholder="Enter your password" />
-        <div className="flex flex-col items-center justify-between mt-6 space-y-6 md:flex-row md:space-y-0">
-          <!--<div className="font-thin text-cyan-700">Forgot Password</div>-->
-          <button
-            className="w-full md:w-auto flex justify-center items-center p-6 space-x-4 font-sans font-bold text-white rounded-md shadow-sm px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90 hover:shadow-lg border transition hover:-translate-y-0.5 duration-150">
-            <span>Next</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff"
-              fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <line x1="13" y1="18" x2="19" y2="12" />
-              <line x1="13" y1="6" x2="19" y2="12" />
-            </svg>
-          </button>
-        </div>
+        <button
+          class="w-full md:w-auto flex justify-center items-center p-6 space-x-4 font-sans font-bold text-white rounded-md shadow-sm px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90 hover:shadow-lg border transition hover:-translate-y-0.5 duration-150 mt-8  max-w-md">
+          <span>Submit</span>
+        </button>
+      </form>
 
-        <div className="separator mt-12 border-b border-b-gray-300"></div>
-
-        <router-link to='/join'>
-          <p className="max-w-sm mb-12 font-sans font-light text-gray-600">
-            Signup Instead
-          </p>
-        </router-link>
-        <!--
-        <p className="py-6 text-sm font-thin text-center text-gray-400">
-          Or Login with:
+      <div className="separator my-6 border-b border-b-gray-200 h-2 w-2/4 max-w-md"></div>
+      <router-link to='/joinUs'>
+        <p class="max-w-sm mb-12 font-sans font-light text-blue-700">
+          Sign Up Instead
         </p>
-        <div className="flex flex-col space-x-0 space-y-6 md:flex-row md:space-x-4 md:space-y-0">
-          <button
-            className="flex items-center justify-center py-2 space-x-3 border border-gray-300 rounded shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:-translate-y-0.5 transition duration-150 md:w-1/2">
-            <img src={facebook} alt="some" className="w-9" />
-            <span className="font-thin">Facebook</span>
-          </button>
-          <button
-            className="flex items-center justify-center py-2 space-x-3 border border-gray-300 rounded shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:-translate-y-0.5 transition duration-150 md:w-1/2">
-            <img src={google} alt="some" className="w-9" />
-            <span className="font-thin">Google</span>
-          </button>
-        </div>
--->
-      </div>
-
-      <img src="../../images/pngs/gigant-dice.png" alt="water" className="w-[430px] hidden md:block" />
-      <router-link to='/'
-        class='absolute -top-5 right-4 flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full md:bg-white md:top-4 hover:cursor-pointer hover:-translate-y-0.5 transition duration-150'>
-        <div class="group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black group-hover:text-gray-600" viewBox="0 0 24 24"
-            stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </div>
       </router-link>
     </div>
 
-  </div>
+  </base-page>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
+import BasePage from '@/components/BasePage.vue';
 export default {
+  components: { BasePage, },
   setup() {
     const content = ref('Login');
 

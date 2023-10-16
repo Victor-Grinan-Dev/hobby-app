@@ -17,19 +17,19 @@
           </router-link>
         </div>
         <div className="group">
-          <router-link :to='heroLinks[1]'>
+          <router-link :to='"/" + heroLinks[1]'>
             {{ heroLinks[1] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
         </div>
         <div className="group">
-          <router-link :to='heroLinks[2]'>
+          <router-link :to='"/" + heroLinks[2]'>
             {{ heroLinks[2] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
         </div>
         <div className="group">
-          <router-link v-if='isLogged' :to='heroLinks[3]'>
+          <router-link v-if='isLogged' :to='"/" + heroLinks[3]'>
             {{ heroLinks[3] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div className="group">
-          <router-link :to='heroLinks[4]'>
+          <router-link :to='"/" + heroLinks[4]'>
             {{ heroLinks[4] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
