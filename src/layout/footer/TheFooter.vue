@@ -14,25 +14,25 @@
             className="flex flex-col items-center space-y-4 font-bold text-white md:flex-row md:space-y-0 md:space-x-6">
 
             <div className="h-10 group">
-              <router-link :to='footerlinks[0]'>
+              <router-link :to='"/" + footerlinks[0]'>
                 {{ footerlinks[0] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
             </div>
             <div className="h-10 group">
-              <router-link :to='footerlinks[1]'>
+              <router-link :to='"/" + footerlinks[1]'>
                 {{ footerlinks[1] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
             </div>
             <div className="h-10 group">
-              <router-link :to='footerlinks[2]'>
+              <router-link :to='"/" + footerlinks[2]'>
                 {{ footerlinks[2] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
             </div>
             <div className="h-10 group">
-              <router-link v-if='isLogged' :to='footerlinks[3]'>
+              <router-link v-if='isLogged' :to='"/" + footerlinks[3]'>
                 {{ footerlinks[3] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
@@ -42,7 +42,7 @@
               </div>
             </div>
             <div className="h-10 group">
-              <router-link :to='footerlinks[4]'>
+              <router-link :to='"/" + footerlinks[4]'>
                 {{ footerlinks[4] }}
                 <div className="group-hover:border-b group hover:border-blue-50"></div>
               </router-link>
