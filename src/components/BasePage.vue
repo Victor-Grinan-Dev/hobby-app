@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class='base-page relative'>
         <hero-banner type='small' />
-        <div class='content-container px-6'>
+        <div class='base-page-content relative content-container px-6'>
             <slot>{{ content }}</slot>
         </div>
     </div>
@@ -9,17 +9,14 @@
 
 <script>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router';
 import HeroBanner from '../layout/hero/HeroBanner';
 export default {
     components: {
         HeroBanner,
     },
     props: ['title'],
-    setup() {
-        const route = useRoute();
-        const page = route.fullPath.split("/")[1]
-        const content = ref('Nothing in the ' + page + ' page yet');
+    setup(props) {
+        const content = ref('Nothing in ' + (props.title || 'this') + ' page yet');
 
         return {
             content,

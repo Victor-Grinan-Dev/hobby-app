@@ -10,12 +10,13 @@ const LoginSignUp = () => import("../pages/login/LoginSignUp.vue");
 const notFound = () => import("../pages/notFound/NotFound.vue");
 const PooperBowl = () =>
   import("../pages/pooperbowl/dashboard/PooperBowlDashBoard.vue");
-const PooperTeamDetails = () =>
+const PooperteamDetails = () =>
   import("../pages/pooperbowl/teamDetails/TeamDetails.vue");
 const OurEvents = () => import("../pages/events/OurEvents.vue");
 const OurProducts = () => import("../pages/products/OurProducts.vue");
 const MyProfile = () => import("../pages/profile/MyProfile.vue");
 const JoinUs = () => import("../pages/join/JoinUs.vue");
+const BowlGame = () => import("../pages/pooperbowl/game/BowlGame.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -37,7 +38,8 @@ const router = createRouter({
       //   { path: "fixtures", component: FixturesTable },
       // ],
     },
-    { path: "/events/pooperbowl/team/:id", component: PooperTeamDetails },
+    { path: "/events/pooperbowl/team/:id", component: PooperteamDetails },
+    { path: "/events/pooperbowl/game", component: BowlGame },
     {
       path: "/events/:id",
       component: DashBoard,
