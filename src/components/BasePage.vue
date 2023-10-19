@@ -1,5 +1,5 @@
 <template>
-    <div class='base-page relative'>
+    <div class='base-page relative flex flex-col'>
         <hero-banner type='small' />
         <div class='base-page-content relative content-container px-6'>
             <slot>{{ content }}</slot>
