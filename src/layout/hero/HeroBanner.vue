@@ -13,7 +13,8 @@
 
       <div className="hidden h-10 font-alata md:flex md:space-x-8">
 
-        <app-link v-for='link in heroLinks' :key='link.id' :name='link.name' :linkTo='link.linkTo'></app-link>
+        <app-link v-for='link in heroLinks' :key='link.id' :name='link.name' :linkTo='link.linkTo'
+          :isProtected='link.isProtected'></app-link>
 
         <!--
         <div className="h-10 group">
