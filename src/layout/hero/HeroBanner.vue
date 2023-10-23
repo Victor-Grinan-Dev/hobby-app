@@ -9,8 +9,14 @@
       </router-link>
 
       <!-- desktop menu -->
+
+
       <div className="hidden h-10 font-alata md:flex md:space-x-8">
-        <div className="group">
+
+        <app-link v-for='link in heroLinks' :key='link.id' :name='link.name' :linkTo='link.linkTo'></app-link>
+
+        <!--
+        <div className="h-10 group">
           <router-link to='login'>
             {{ heroLinks[0] }}
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
@@ -44,6 +50,7 @@
             <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
           </router-link>
         </div>
+-->
       </div>
       <!-- Mobile menu -->
       <hamburger-menu />
@@ -61,13 +68,16 @@
 import { ref, reactive, computed } from 'vue';
 import HamburgerMenu from './hamburgerMenu/HamburgerMenu.vue';
 import TheCollapse from './collapse/TheCollapse';
-import { links } from '../../appsetup/appSetup';
+// import { links } from '../../appsetup/appSetup';
+import { appLinks } from '@/appsetup/appSetup';
 import useDialog from '../../hooks/dialog';
+import AppLink from '@/components/appLink/AppLink.vue';
 
 export default {
   components: {
     HamburgerMenu,
     TheCollapse,
+    AppLink,
 
   },
 
@@ -94,7 +104,7 @@ export default {
   },
 
   setup(props) {
-    const heroLinks = reactive(links);
+    const heroLinks = reactive(appLinks);
     const recievedMode = ref(props.type).value;
     const { activate } = useDialog();
     const mode = computed(() => {
