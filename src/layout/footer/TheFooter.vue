@@ -13,40 +13,9 @@
           <div
             className="flex flex-col items-center space-y-4 font-bold text-white md:flex-row md:space-y-0 md:space-x-6">
 
-            <div className="h-10 group">
-              <router-link :to='"/" + footerlinks[0]'>
-                {{ footerlinks[0] }}
-                <div className="group-hover:border-b group hover:border-blue-50"></div>
-              </router-link>
-            </div>
-            <div className="h-10 group">
-              <router-link :to='"/" + footerlinks[1]'>
-                {{ footerlinks[1] }}
-                <div className="group-hover:border-b group hover:border-blue-50"></div>
-              </router-link>
-            </div>
-            <div className="h-10 group">
-              <router-link :to='"/" + footerlinks[2]'>
-                {{ footerlinks[2] }}
-                <div className="group-hover:border-b group hover:border-blue-50"></div>
-              </router-link>
-            </div>
-            <div className="h-10 group">
-              <router-link v-if='isLogged' :to='"/" + footerlinks[3]'>
-                {{ footerlinks[3] }}
-                <div className="group-hover:border-b group hover:border-blue-50"></div>
-              </router-link>
-              <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
-                {{ footerlinks[3] }}
-                <div className="group-hover:border-b group hover:border-blue-50"></div>
-              </div>
-            </div>
-            <div className="h-10 group">
-              <router-link :to='"/" + footerlinks[4]'>
-                {{ footerlinks[4] }}
-                <div className="group-hover:border-b group hover:border-blue-50"></div>
-              </router-link>
-            </div>
+            <app-link v-for='link in footerlinks' :key='link.id' :name='link.name' :linkTo='link.linkTo'
+              :isProtected='link.isProtected' />
+
           </div>
         </div>
         <div className="flex flex-col items-start justify-between space-y-4-tex-gray-500">
@@ -88,9 +57,13 @@
 
 <script>
 import { ref, reactive, computed } from 'vue';
-import { links } from '../../appsetup/appSetup';
+import { appLinks } from '../../appsetup/appSetup';
+import AppLink from '@/components/appLink/AppLink.vue';
 import useDialog from '@/hooks/dialog';
 export default {
+  components: {
+    AppLink,
+  },
   computed: {
     isVisible() {
       return this.$store.state.isVisible;
@@ -107,7 +80,7 @@ export default {
         return new Date().getFullYear();
       }
     });
-    const footerlinks = reactive(links);
+    const footerlinks = reactive(appLinks);
 
     const activateDialog = () => {
       activate('access denied!', 'You must be logged in to see the your profile');

@@ -10,48 +10,11 @@
 
       <!-- desktop menu -->
 
-
       <div className="hidden h-10 font-alata md:flex md:space-x-8">
 
         <app-link v-for='link in heroLinks' :key='link.id' :name='link.name' :linkTo='link.linkTo'
-          :isProtected='link.isProtected'></app-link>
+          :isProtected='link.isProtected' />
 
-        <!--
-        <div className="h-10 group">
-          <router-link to='login'>
-            {{ heroLinks[0] }}
-            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-          </router-link>
-        </div>
-        <div className="group">
-          <router-link :to='"/" + heroLinks[1]'>
-            {{ heroLinks[1] }}
-            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-          </router-link>
-        </div>
-        <div className="group">
-          <router-link :to='"/" + heroLinks[2]'>
-            {{ heroLinks[2] }}
-            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-          </router-link>
-        </div>
-        <div className="group">
-          <router-link v-if='isLogged' :to='"/" + heroLinks[3]'>
-            {{ heroLinks[3] }}
-            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-          </router-link>
-          <div v-else class='cursor-pointer capitalize' @click='activateDialog'>
-            {{ heroLinks[3] }}
-            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-          </div>
-        </div>
-        <div className="group">
-          <router-link :to='"/" + heroLinks[4]'>
-            {{ heroLinks[4] }}
-            <div className="mx-2 group-hover:border-b group hover:border-blue-50"></div>
-          </router-link>
-        </div>
--->
       </div>
       <!-- Mobile menu -->
       <hamburger-menu />
