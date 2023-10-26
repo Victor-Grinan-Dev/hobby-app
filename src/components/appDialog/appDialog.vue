@@ -67,7 +67,7 @@ export default {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  z-index: 1000;
+  z-index: 50;
 }
 
 dialog {
@@ -75,7 +75,6 @@ dialog {
   top: 20vh;
   left: 10%;
   width: 80%;
-  z-index: 100;
   border-radius: 12px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -83,7 +82,7 @@ dialog {
   margin: 0;
   overflow: hidden;
   background-color: white;
-  z-index: 1001;
+  z-index: 51;
 }
 
 header {
