@@ -46,8 +46,8 @@ export default {
         const { activate } = useDialog();
         const activateDialog = () => {
             activate('Access Denied!', 'Only Logged in users can see their profiles.');
-            if (fx) {
-                fx.value()
+            if (typeof fx.value === 'function') {
+                fx.value();
             }
         }
 
