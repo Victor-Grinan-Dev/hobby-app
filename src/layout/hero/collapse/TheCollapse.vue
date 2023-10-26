@@ -1,9 +1,6 @@
 <template>
     <div v-if="isOpen" @scroll='disableScroll'
         class="fixed top-0 bottom-0 left-0 flex flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black z-10">
-        <!--        <router-link v-for='link in collLinks' :key='link.id' class='hover:text-pink-700' :to='evaluatedLink(link.linkTo)'
-            @click='closeCollapse(link.name)'>{{ link.name }}
-        </router-link>-->
 
         <app-link v-for='link in collLinks' :key='link.id' :name='link.name' :linkTo='link.linkTo'
             :isProtected='link.isProtected' type='hover-pink' :fx='closeCollapse' />
