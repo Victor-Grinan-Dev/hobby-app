@@ -25,4 +25,8 @@ export default {
   matchups(state) {
     return state.matchups;
   },
+  //Cant make this work
+  dashboardTab(state) {
+    return state.dashboardTab;
+  },
 };
