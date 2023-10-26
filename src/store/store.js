@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 
-import pooperBowlModule from "./modules/pooperbowl/index.js";
+import pooperBowlModule from "./modules/pooperbowl/index";
 
 const store = createStore({
   modules: {
@@ -8,12 +8,18 @@ const store = createStore({
   },
   state() {
     return {
+      /*** MENU COLLAPSE ***/
       isCollapseOpen: false,
+
       /*** DIALOG ***/
       dialogTitle: "testing warning!",
       isDialogVisible: false,
       dialogContent: "test content",
+
+      /*** Auth ***/
       isLogged: false,
+
+      /*** EVENTS ***/
       events: [
         // pooperBowlModule,
         {
@@ -63,6 +69,7 @@ const store = createStore({
     },
   },
   actions: {
+    /*** MENU COLLAPSE ***/
     toggleCollapse(context) {
       context.commit("toggleCollapse");
     },
@@ -80,13 +87,15 @@ const store = createStore({
     setDialogContent(context, payload) {
       context.commit("setDialogContent", payload);
     },
+
+    /*** Auth ***/
+
+    /*** EVENTS ***/
   },
   getters: {
+    /*** MENU COLLAPSE ***/
     isCollapseOpen(state) {
       return state.isCollapseOpen;
-    },
-    events(state) {
-      return state.events;
     },
 
     /*** DIALOG ***/
@@ -98,6 +107,13 @@ const store = createStore({
     },
     dialogContent(state) {
       return state.dialogContent;
+    },
+
+    /*** Auth ***/
+
+    /*** EVENTS ***/
+    events(state) {
+      return state.events;
     },
   },
 });
