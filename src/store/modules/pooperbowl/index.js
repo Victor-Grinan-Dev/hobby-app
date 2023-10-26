@@ -16,6 +16,9 @@ export default {
         startDate: "",
         endDate: "",
         players: [],
+
+        /* TODO: make the dashboard tabs saved in state so when the page reloads the dashboard returns to the right dashboard tab. */
+        dashboardTab: "fixtures-table", //fixtures-table news-feed leader-boards league-teams
       },
 
       leagueTable: [
@@ -212,6 +215,7 @@ export default {
       passingCalculator: {},
     };
   },
+
   mutations,
   actions,
   getters,
