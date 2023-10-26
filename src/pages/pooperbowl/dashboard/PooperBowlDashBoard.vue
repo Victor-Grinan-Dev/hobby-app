@@ -6,27 +6,10 @@
             <div class='pooper-dashboard flex flex-col w-full'>
 
                 <h2 class='text-3xl ml-4'>{{ title }}</h2>
-
                 <transition name="component" mode="out-in">
                     <component :is="currentComponent" class='component-area relative ml-4'>
                     </component>
                 </transition>
-
-                <!-- inner componentr for diferent components 
-           
-            <div class=' flex align-top flex-wrap justify-start  items-start text-center gap-4'>
-              
-                <base-card type='full'>
-                    <overall-View></overall-View>
-                </base-card>
-                <base-card type='full'>
-                    <league-table></league-table>
-                </base-card>
-                <base-card v-for='item in content' v-bind:key='item' :data='item' type='full'>
-                    <p> {{ item }}</p>
-                </base-card>
-            </div>
--->
             </div>
         </dash-board>
     </div>
@@ -34,19 +17,15 @@
 <script>
 // import { ref } from 'vue';
 import DashBoard from '../../../components/baseDashboard/DashBoard';
-// import BaseCard from '../../../components/baseCard/BaseCard';
-// import OverallView from './OverallView';
-// import LeagueTable from './LeagueTable';
 import SideNav from './components/sideNav/SideNav';
 import LeaderBoards from './components/leaderBoard/LeaderBoards.vue'
 import FixturesTable from './components/fixtures/FixturesTable.vue';
 import NewsFeed from './components/newsFeed/NewsFeed.vue';
 import LeagueTeams from './components/leagueTeams/LeagueTeams.vue';
+
 export default {
     components: {
         DashBoard,
-        // BaseCard,
-        // OverallView,
         SideNav,
         FixturesTable,
         NewsFeed,
@@ -54,9 +33,15 @@ export default {
         LeagueTeams,
     },
     setup() {
-        const title = "Pooper Bowl IV"
+        const title = "Pooper Bowl IV";
+        const store = useStore();
+        const page = computed(() => {
+            return store.getters['pooperBowl/dashboardTab']
+        });
+        console.log(page.value)
         return {
             title,
+            page,
         }
     },
     data() {
