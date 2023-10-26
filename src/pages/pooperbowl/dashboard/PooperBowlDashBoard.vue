@@ -7,6 +7,8 @@
 
                 <h2 class='text-3xl ml-4'>{{ title }}</h2>
                 <transition name="component" mode="out-in">
+                    <!--<component :is="currentComponent" class='component-area relative ml-4'>
+                    </component>-->
                     <component :is="currentComponent" class='component-area relative ml-4'>
                     </component>
                 </transition>
@@ -15,7 +17,9 @@
     </div>
 </template>
 <script>
-// import { ref } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+// import { mapGetters } from 'vuex';
 import DashBoard from '../../../components/baseDashboard/DashBoard';
 import SideNav from './components/sideNav/SideNav';
 import LeaderBoards from './components/leaderBoard/LeaderBoards.vue'
@@ -46,7 +50,8 @@ export default {
     },
     data() {
         return {
-            currentComponent: "news-feed",
+            currentComponent: "news-feed", //fixtures-table news-feed leader-boards league-teams
+            // currentComponent: this.$store.getters['pooperBowl/dasboardTab'], //fixtures-table news-feed leader-boards league-teams
             /**
                 name: "feed",
                 code: "news-feed"
@@ -61,9 +66,14 @@ export default {
     },
     methods: {
         switchComponent(comp) {
+            console.log(comp)
+            console.log(this.$store.getters['pooperBowl/dashboardTab'])
             this.currentComponent = comp;
         }
-    }
+    },
+    // computed: {
+    //     ...mapGetters('pooperBowl', ['dasboardTab']),
+    // }
 }
 </script>
 <style scoped>
