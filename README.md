@@ -1,5 +1,5 @@
 # hobby-app
-https://vercel.com/victor-grinan-dev/malditos-dice
+- https://malditos-dice.vercel.app/home
 # Empty-App
 A brief description of your web application.
 this App including this readme are a template to start a react app with most the features created, this includes a crud template, a product browser, a single page for the items, a 404 and more ready components that only need to be modified. 
